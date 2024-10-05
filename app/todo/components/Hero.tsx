@@ -5,7 +5,7 @@ import kittenImageMeep from '../images/kitten-meep.png';
 // Is this component technically a hero? Kitty is a hero to me and I won't hear a word to the contrary
 const Hero = () => {
   return (
-    <section className='grid grid-cols-2 justify-items-stretch align-top p-4 mt-8 mb-4'>
+    <section className='grid grid-cols-2 justify-items-stretch align-top p-4 mb-4'>
       <div className='relative group'>
         {/* When the user hovers over the image, a cute speech bubble appears saying 'meeep!'. This is
         achieved by having two images, one with the speech bubble and one without, and transitioning

@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback } from 'react';
-import { useLocalStorage } from '../utils/localStorage';
+import { useLocalStorage } from '../../utils/localStorage';
 import InputForm from './InputForm';
 import TodoList from './TodoList';
 import { Task } from '../types';
