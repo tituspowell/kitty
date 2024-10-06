@@ -6,8 +6,6 @@ import { toast } from 'react-toastify';
 import { PawIconWithClass, TickIconWithClass } from '../../icons';
 import { useTodo } from '@/app/contexts/TodoContext';
 
-// A fair bit of prop drilling here, so a possible future improvement would be to use
-// Context API for global state management
 const SingleTask = ({ task }: { task: Task }) => {
   const { id, text } = task;
   const [isEditing, setIsEditing] = useState<boolean>(false);

@@ -1,3 +1,5 @@
+// Types specific to the To-Do List mini-app
+
 export interface Task {
   id: string;
   text: string;

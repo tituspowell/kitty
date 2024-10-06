@@ -11,7 +11,7 @@ const InputForm = () => {
   const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Using Toastify for the error alert
+    // Use Toastify for the error alert
     if (!input) {
       toast.error('Meep! Please enter a task description!');
       return;

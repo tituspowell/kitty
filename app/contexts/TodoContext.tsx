@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useState } from 'react';
 import { useLocalStorage } from '../utils/localStorage';
 import { TodoContextType, Task } from '../todo/types';
+// Using Nanoid to create a unique ID for each task when created
 import { nanoid } from 'nanoid';
 
 const LOCAL_STORAGE_KEY = 'tasks';
@@ -28,15 +29,8 @@ export function TodoProvider({ children }: { children: React.ReactNode }) {
   );
 
   const addTask = (text: string) => {
-    // Using Nanoid to create a unique ID for each task when created
     setTasks((prev) => [...prev, { id: nanoid(), text, completed: false }]);
   };
-
-  // TODO - should these be wrapped with useCallback? E.g.:
-  // const toggleCompleted = useCallback(
-  //   (id: string) => { ... },
-  //   [setTasks]
-  // );
 
   const toggleCompleted = (id: string) => {
     setTasks((prev) =>
