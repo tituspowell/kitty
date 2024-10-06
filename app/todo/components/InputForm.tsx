@@ -2,11 +2,11 @@
 
 import { FormEvent, useState } from 'react';
 import { toast } from 'react-toastify';
-import { Task } from '../types';
-import { nanoid } from 'nanoid';
+import { useTodo } from '@/app/contexts/TodoContext';
 
-const InputForm = ({ addTask }: { addTask: (task: Task) => void }) => {
+const InputForm = () => {
   const [input, setInput] = useState('');
+  const { addTask } = useTodo();
 
   const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,13 +17,7 @@ const InputForm = ({ addTask }: { addTask: (task: Task) => void }) => {
       return;
     }
 
-    // Using Nanoid to create a unique ID for each task when created
-    const newTask: Task = {
-      id: nanoid(),
-      description: input,
-      isComplete: false,
-    };
-    addTask(newTask);
+    addTask(input);
 
     // Clear the input after successfully adding a task
     setInput('');

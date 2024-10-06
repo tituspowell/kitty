@@ -4,27 +4,19 @@ import { useState } from 'react';
 import { Task } from '../types';
 import { toast } from 'react-toastify';
 import { PawIconWithClass, TickIconWithClass } from '../../icons';
+import { useTodo } from '@/app/contexts/TodoContext';
 
 // A fair bit of prop drilling here, so a possible future improvement would be to use
 // Context API for global state management
-const SingleTask = ({
-  task,
-  deleteTask,
-  editTask,
-  toggleCompleted,
-}: {
-  task: Task;
-  deleteTask: (id: string) => void;
-  editTask: (id: string, newDescription: string) => void;
-  toggleCompleted: (id: string) => void;
-}) => {
-  const { id, description } = task;
+const SingleTask = ({ task }: { task: Task }) => {
+  const { id, text } = task;
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [input, setInput] = useState<string>('');
+  const { toggleCompleted, deleteTask, editTask } = useTodo();
 
   const handleEdit = () => {
     setIsEditing(true);
-    setInput(description);
+    setInput(text);
   };
 
   const handleUpdate = () => {
@@ -49,17 +41,17 @@ const SingleTask = ({
             className='flex-1 text-primary-100 bg-primary-950'
           >
             <div className='flex'>
-              {task.isComplete ? (
+              {task.completed ? (
                 <TickIconWithClass className='text-xl my-auto mx-2' />
               ) : (
                 <PawIconWithClass className='text-xl my-auto mx-2' />
               )}
               <h4
                 className={`flex-1 flex text-lg rounded-l pl-2 ${
-                  task.isComplete && 'line-through'
+                  task.completed && 'line-through'
                 }`}
               >
-                {description}
+                {text}
               </h4>
             </div>
           </button>
