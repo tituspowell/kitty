@@ -28,8 +28,6 @@ const InputForm = () => {
     <form className={`m-4 flex`} onSubmit={handleFormSubmit}>
       <input
         type='text'
-        name=''
-        id=''
         placeholder='I enters important task here...'
         value={input}
         onChange={(e) => {
@@ -39,9 +37,9 @@ const InputForm = () => {
       />
       <button
         type='submit'
-        className={`${theme.button.primary} rounded-r mx-0 px-4`}
+        className={`${theme.button.primary} rounded-r mx-0 w-20 px-4 text-lg`}
       >
-        Add Task
+        Add
       </button>
     </form>
   );

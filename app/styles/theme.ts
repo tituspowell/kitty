@@ -18,15 +18,11 @@ export const theme = {
     lowContrast: 'decoration-primary-700 dark:decoration-primary-500',
     // inverse: 'decoration-primary-50 dark:decoration-primary-950',
   },
-  bg: {
-    // primary: 'bg-primary-100 dark:bg-primary-900',
-    // secondary: 'bg-primary-50 dark:bg-primary-800',
-    // accent: 'bg-primary-200 dark:bg-primary-700',
-  },
+  task: 'text-primary-950 bg-primary-50 dark:bg-primary-100',
   button: {
     primary:
-      'bg-primary-900 hover:bg-primary-800 dark:bg-primary-700 dark:hover:bg-primary-600 text-primary-50',
+      'bg-primary-900 hover:bg-primary-850 dark:bg-primary-850 dark:hover:bg-primary-800 text-primary-50',
     secondary:
-      'bg-primary-100 hover:bg-primary-200 dark:bg-primary-800 dark:hover:bg-primary-700 text-primary-900 dark:text-primary-50',
+      'bg-primary-950 hover:bg-primary-900 dark:bg-primary-900 dark:hover:bg-primary-850 text-primary-50',
   },
 } as const;

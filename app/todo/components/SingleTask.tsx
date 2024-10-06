@@ -5,6 +5,7 @@ import { Task } from '../types';
 import { toast } from 'react-toastify';
 import { PawIconWithClass, TickIconWithClass } from '../../icons';
 import { useTodo } from '@/app/contexts/TodoContext';
+import { theme } from '@/app/styles/theme';
 
 const SingleTask = ({ task }: { task: Task }) => {
   const { id, text } = task;
@@ -36,7 +37,7 @@ const SingleTask = ({ task }: { task: Task }) => {
           {/* Normal version, showing the task plus a Delete and an Edit button */}
           <button
             onClick={() => toggleCompleted(task.id)}
-            className='flex-1 text-primary-100 bg-primary-950'
+            className={`flex-1 ${theme.task}`}
           >
             <div className='flex'>
               {task.completed ? (
@@ -55,13 +56,16 @@ const SingleTask = ({ task }: { task: Task }) => {
           </button>
           {/* Delete button */}
           <button
-            className='bg-primary-900 mx-0 w-20'
+            className={`${theme.button.primary} mx-0 w-20`}
             onClick={() => deleteTask(id)}
           >
             Delete
           </button>
           {/* Edit button */}
-          <button className='bg-primary-950 mx-0 w-20' onClick={handleEdit}>
+          <button
+            className={`${theme.button.secondary} mx-0 w-20`}
+            onClick={handleEdit}
+          >
             Edit
           </button>
         </div>
@@ -78,12 +82,15 @@ const SingleTask = ({ task }: { task: Task }) => {
             />
           </div>
           {/* Update button */}
-          <button className='bg-primary-900 mx-0 w-20' onClick={handleUpdate}>
+          <button
+            className={`${theme.button.primary} mx-0 w-20`}
+            onClick={handleUpdate}
+          >
             Update
           </button>
           {/* Cancel button */}
           <button
-            className='bg-primary-950 mx-0 w-20'
+            className={`${theme.button.secondary} mx-0 w-20`}
             onClick={() => setIsEditing(false)}
           >
             Cancel
