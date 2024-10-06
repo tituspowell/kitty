@@ -32,6 +32,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider>
+          {/* At the moment the theme context provider is only used in the ThemeSwitch component in the navbar, so we don't need to wrap the whole app like this */}
           <Navbar />
           {children}
         </ThemeProvider>
