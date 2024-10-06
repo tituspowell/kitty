@@ -46,7 +46,7 @@ const SingleTask = ({
           {/* Normal version, showing the task plus a Delete and an Edit button */}
           <button
             onClick={() => toggleCompleted(task.id)}
-            className='flex-1 text-amber-100 bg-amber-950'
+            className='flex-1 text-primary-100 bg-primary-950'
           >
             <div className='flex'>
               {task.isComplete ? (
@@ -65,20 +65,20 @@ const SingleTask = ({
           </button>
           {/* Delete button */}
           <button
-            className='bg-amber-900 mx-0 w-20'
+            className='bg-primary-900 mx-0 w-20'
             onClick={() => deleteTask(id)}
           >
             Delete
           </button>
           {/* Edit button */}
-          <button className='bg-amber-950 mx-0 w-20' onClick={handleEdit}>
+          <button className='bg-primary-950 mx-0 w-20' onClick={handleEdit}>
             Edit
           </button>
         </div>
       ) : (
         <div className='flex py-0.5'>
           {/* 'Editing' version, showing the task as an input plus an Update and a Cancel button */}
-          <div className='flex-1 flex text-amber-100 bg-amber-950'>
+          <div className='flex-1 flex text-primary-100 bg-primary-950'>
             <input
               className={`flex-1 text-black text-lg rounded-l pl-2 focus:outline-none focus:ring-0 focus:border-none`}
               value={input}
@@ -88,12 +88,12 @@ const SingleTask = ({
             />
           </div>
           {/* Update button */}
-          <button className='bg-amber-900 mx-0 w-20' onClick={handleUpdate}>
+          <button className='bg-primary-900 mx-0 w-20' onClick={handleUpdate}>
             Update
           </button>
           {/* Cancel button */}
           <button
-            className='bg-amber-950 mx-0 w-20'
+            className='bg-primary-950 mx-0 w-20'
             onClick={() => setIsEditing(false)}
           >
             Cancel

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import kittenImage from '../images/kitten.png';
 import kittenImageMeep from '../images/kitten-meep.png';
+import { theme } from '../../styles/theme';
 
 // Is this component technically a hero? Kitty is a hero to me and I won't hear a word to the contrary
 const Hero = () => {
@@ -28,11 +29,21 @@ const Hero = () => {
         ></Image>
       </div>
       <div className='grid grid-cols-1 align-top justify-items-center h-[100px]'>
-        <h1 className='text-6xl text-amber-500 italic'>Kitty's</h1>
-        <h1 className='text-amber-50 text-4xl mt-2'>
-          TO <span className='line-through decoration-amber-500'>DO</span> LIST
+        <h1
+          className={`${theme.text.lowContrast} text-6xl text-primary-500 italic`}
+        >
+          Kitty's
         </h1>
-        <h1 className='text-amber-500 text-2xl italic mt-[-0.75rem] pr-6'>
+        <h1 className={`${theme.text.highContrast} text-4xl mt-2`}>
+          TO{' '}
+          <span className={`${theme.decoration.lowContrast} line-through`}>
+            DO
+          </span>{' '}
+          LIST
+        </h1>
+        <h1
+          className={`${theme.text.lowContrast} text-2xl italic mt-[-0.75rem] pr-6`}
+        >
           mew
         </h1>
       </div>

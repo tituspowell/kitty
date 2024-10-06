@@ -69,7 +69,7 @@ const TasksContainer = () => {
     // Server-side rendering and we don't have access to localStorage, so show a loading spinner
     return (
       <div className='flex justify-center items-center h-32'>
-        <div className='animate-spin rounded-full h-8 w-8 border-b-2 border-amber-500'></div>
+        <div className='animate-spin rounded-full h-8 w-8 border-b-2 border-primary-500'></div>
       </div>
     );
   }

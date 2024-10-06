@@ -40,9 +40,9 @@ const InputForm = ({ addTask }: { addTask: (task: Task) => void }) => {
         onChange={(e) => {
           setInput(e.target.value);
         }}
-        className='px-2 py-1 flex-1 rounded-l text-black text-xl focus:outline-none focus:ring-0 focus:border-none bg-amber-50'
+        className='px-2 py-1 flex-1 rounded-l text-black text-xl focus:outline-none focus:ring-0 focus:border-none bg-primary-50'
       />
-      <button type='submit' className='bg-amber-900 rounded-r mx-0 px-4'>
+      <button type='submit' className='bg-primary-900 rounded-r mx-0 px-4'>
         Add Task
       </button>
     </form>

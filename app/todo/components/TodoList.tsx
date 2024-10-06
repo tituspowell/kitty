@@ -19,7 +19,7 @@ const TodoList = ({
 
   return (
     <section className='p-4 mb-4'>
-      <h2 className='text-amber-50 text-2xl my-2'>{labelText}</h2>
+      <h2 className='text-primary-50 text-2xl my-2'>{labelText}</h2>
       {tasks.map((task) => {
         return (
           <SingleTask
