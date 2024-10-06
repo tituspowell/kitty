@@ -2,9 +2,8 @@
 
 import { useState } from 'react';
 import { Task } from '../types';
-import { IoIosPaw } from 'react-icons/io';
-import { GiCheckMark } from 'react-icons/gi';
 import { toast } from 'react-toastify';
+import { PawIconWithClass, TickIconWithClass } from '../../icons';
 
 // A fair bit of prop drilling here, so a possible future improvement would be to use
 // Context API for global state management
@@ -51,9 +50,9 @@ const SingleTask = ({
           >
             <div className='flex'>
               {task.isComplete ? (
-                <GiCheckMark className='text-xl my-auto mx-2' />
+                <TickIconWithClass className='text-xl my-auto mx-2' />
               ) : (
-                <IoIosPaw className='text-xl my-auto mx-2' />
+                <PawIconWithClass className='text-xl my-auto mx-2' />
               )}
               <h4
                 className={`flex-1 flex text-lg rounded-l pl-2 ${

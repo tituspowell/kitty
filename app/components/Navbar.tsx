@@ -1,6 +1,7 @@
 'use client';
 
 import NavLink from './NavLink';
+import { ThemeSwitch } from './ThemeSwitch';
 
 function Navbar() {
   return (
@@ -9,6 +10,7 @@ function Navbar() {
       <NavLink path={'/todo'} text='To Do List' />
       <NavLink path={'/weather'} text='Weather' />
       <NavLink path={'/calculator'} text='Calculator' />
+      <ThemeSwitch />
     </nav>
   );
 }
