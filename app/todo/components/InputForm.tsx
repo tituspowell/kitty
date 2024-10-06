@@ -3,6 +3,7 @@
 import { FormEvent, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useTodo } from '@/app/contexts/TodoContext';
+import { theme } from '@/app/styles/theme';
 
 const InputForm = () => {
   const [input, setInput] = useState('');
@@ -24,7 +25,7 @@ const InputForm = () => {
   };
 
   return (
-    <form className='m-4 flex' onSubmit={handleFormSubmit}>
+    <form className={`m-4 flex`} onSubmit={handleFormSubmit}>
       <input
         type='text'
         name=''
@@ -34,9 +35,12 @@ const InputForm = () => {
         onChange={(e) => {
           setInput(e.target.value);
         }}
-        className='px-2 py-1 flex-1 rounded-l text-black text-xl focus:outline-none focus:ring-0 focus:border-none bg-primary-50'
+        className={`px-2 py-1 flex-1 rounded-l border ${theme.border} text-black text-xl bg-primary-50 focus:outline-none focus:ring-0`}
       />
-      <button type='submit' className='bg-primary-900 rounded-r mx-0 px-4'>
+      <button
+        type='submit'
+        className={`${theme.button.primary} rounded-r mx-0 px-4`}
+      >
         Add Task
       </button>
     </form>

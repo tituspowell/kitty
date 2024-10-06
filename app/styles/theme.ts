@@ -25,7 +25,7 @@ export const theme = {
   },
   button: {
     primary:
-      'bg-primary-500 hover:bg-primary-600 dark:bg-primary-400 dark:hover:bg-primary-500 text-white dark:text-primary-950',
+      'bg-primary-900 hover:bg-primary-800 dark:bg-primary-700 dark:hover:bg-primary-600 text-primary-50',
     secondary:
       'bg-primary-100 hover:bg-primary-200 dark:bg-primary-800 dark:hover:bg-primary-700 text-primary-900 dark:text-primary-50',
   },

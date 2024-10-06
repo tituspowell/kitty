@@ -17,7 +17,7 @@ const Hero = () => {
           height={256}
           alt='kitten'
           priority
-          className='transition-opacity duration-300 ease-in-out'
+          className='transition-opacity duration-300 ease-in-out shadow-lg'
         ></Image>
         <Image
           src={kittenImageMeep}
@@ -25,7 +25,7 @@ const Hero = () => {
           height={256}
           alt='kitten'
           priority
-          className='absolute top-0 left-0 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100'
+          className='absolute top-0 left-0 opacity-0 transition-opacity duration-300 ease-in-out shadow-lg group-hover:opacity-100'
         ></Image>
       </div>
       <div className='grid grid-cols-1 align-top justify-items-center h-[100px]'>
