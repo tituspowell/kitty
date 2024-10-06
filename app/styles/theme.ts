@@ -11,6 +11,7 @@ export const theme = {
       'text-primary-900 hover:text-primary-600 dark:text-primary-100 dark:hover:text-white',
   },
   border: 'border-primary-950 dark:border-primary-600',
+  icon: 'text-primary-700 hover:text-primary-500 dark:text-primary-100 dark:hover:text-white',
   decoration: {
     // highContrast: 'decoration-primary-950 dark:decoration-primary-50',
     // mediumContrast: 'decoration-primary-900 dark:decoration-primary-100',

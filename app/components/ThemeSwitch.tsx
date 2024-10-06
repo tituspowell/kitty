@@ -1,20 +1,21 @@
 import { useTheme } from '../contexts/ThemeContext';
 import { SunIconWithClass, MoonIconWithClass } from '../icons';
+import { theme } from '../styles/theme';
 
 export function ThemeSwitch() {
   const { isDarkMode, toggleTheme } = useTheme();
+  const sharedStyle = `h-5 w-5 ${theme.icon} font-semibold transition duration-300`;
 
   return (
     <button
       onClick={toggleTheme}
-      className='p-2 rounded-full transition-colors duration-200
-                hover:bg-gray-200 dark:hover:bg-gray-700'
+      className='p-2 rounded-full'
       aria-label='Toggle theme'
     >
       {isDarkMode ? (
-        <SunIconWithClass className='h-5 w-5 text-gray-200' />
+        <SunIconWithClass className={sharedStyle} />
       ) : (
-        <MoonIconWithClass className='h-5 w-5 text-gray-800' />
+        <MoonIconWithClass className={sharedStyle} />
       )}
     </button>
   );
