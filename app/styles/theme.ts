@@ -14,9 +14,9 @@ export const theme = {
   task: 'text-primary-950 hover:text-primary-700 bg-primary-50 dark:bg-primary-100',
   button: {
     primary:
-      'bg-primary-900 hover:bg-primary-850 dark:bg-primary-850 dark:hover:bg-primary-500 text-primary-50',
+      'bg-primary-900 hover:bg-primary-500 dark:bg-primary-850 dark:hover:bg-primary-500 text-primary-50',
     secondary:
-      'bg-primary-950 hover:bg-primary-900 dark:bg-primary-900 dark:hover:bg-primary-500 text-primary-50',
+      'bg-primary-950 hover:bg-primary-500 dark:bg-primary-900 dark:hover:bg-primary-500 text-primary-50',
     arrow:
       'text-amber-900 bg-primary-50 dark:bg-primary-100 hover:bg-primary-500 dark:hover:bg-primary-500',
     arrowDisabled: 'text-gray-400 bg-primary-50 dark:bg-primary-100',

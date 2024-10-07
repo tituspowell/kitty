@@ -45,7 +45,7 @@ const SingleTask = ({ task }: { task: Task }) => {
       {/* Conditional rendering: normally we show the task plus a Delete and an Edit button. Once they
       click Edit, through, we show an input field and an Update and a Cancel button instead. */}
       {!isEditing ? (
-        <div className='flex py-0.5'>
+        <div className='flex py-0.5 h-[36px]'>
           {/* Normal version, showing the task plus a Delete and an Edit button */}
           <button
             onClick={() => toggleCompleted(task.id)}
@@ -104,11 +104,11 @@ const SingleTask = ({ task }: { task: Task }) => {
           </div>
         </div>
       ) : (
-        <div className='flex py-0.5'>
+        <div className='flex py-0.5 h-[36px]'>
           {/* 'Editing' version, showing the task as an input plus an Update and a Cancel button */}
-          <div className='flex-1 flex text-primary-100 bg-primary-950'>
+          <div className={`flex flex-1`}>
             <input
-              className={`flex-1 text-black text-lg rounded-l pl-2 focus:outline-none focus:ring-0 focus:border-none`}
+              className={`flex-1 text-black bg-primary-50 text-lg rounded-l pl-2 focus:outline-none focus:ring-0 focus:border-none`}
               value={input}
               onChange={(e) => {
                 setInput(e.target.value);
@@ -129,6 +129,8 @@ const SingleTask = ({ task }: { task: Task }) => {
           >
             Cancel
           </button>
+          {/* Empty div to maintain alignment */}
+          <div className={`w-4 ${theme.button.arrowDisabled}`}></div>
         </div>
       )}
     </article>
