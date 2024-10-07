@@ -4,6 +4,7 @@ import { FormEvent, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useTodo } from '@/app/contexts/TodoContext';
 import { theme } from '@/app/styles/theme';
+import BouncyButton from './BouncyButton';
 
 const InputForm = () => {
   const [input, setInput] = useState('');
@@ -35,12 +36,12 @@ const InputForm = () => {
         }}
         className={`px-2 py-1 flex-1 rounded-l border ${theme.border} text-black text-xl bg-primary-50 focus:outline-none focus:ring-0`}
       />
-      <button
-        type='submit'
+      <BouncyButton
+        isSubmitType={true}
+        text='Add'
         className={`${theme.button.primary} rounded-r mx-0 w-20 px-4 text-lg`}
-      >
-        Add
-      </button>
+        onClick={() => {}}
+      />
     </form>
   );
 };

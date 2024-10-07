@@ -2,11 +2,11 @@
 
 import { useState } from 'react';
 import { Task } from '../types';
-import { toast } from 'react-toastify';
-import { PawIconWithClass, TickIconWithClass } from '../../icons';
 import { useTodo } from '@/app/contexts/TodoContext';
 import { theme } from '@/app/styles/theme';
+import { PawIconWithClass, TickIconWithClass } from '../../icons';
 import { SlArrowUp, SlArrowDown } from 'react-icons/sl';
+import { toast } from 'react-toastify';
 
 const SingleTask = ({ task }: { task: Task }) => {
   const { id, text } = task;
@@ -66,7 +66,8 @@ const SingleTask = ({ task }: { task: Task }) => {
               </h4>
             </div>
           </button>
-          {/* Delete button */}
+          {/* Delete button
+          We don't use the BouncyButton component for the buttons here because they vanish as soon as they are clicked */}
           <button
             className={`${theme.button.primary} mx-0 w-20`}
             onClick={() => deleteTask(id)}
