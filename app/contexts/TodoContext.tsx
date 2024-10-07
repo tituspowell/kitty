@@ -122,6 +122,10 @@ export function TodoProvider({ children }: { children: React.ReactNode }) {
     setTasks(newTasks);
   };
 
+  const deleteAllCompleted = () => {
+    setTasks((prev) => prev.filter((task) => !task.completed));
+  };
+
   return (
     <TodoContext.Provider
       value={{
@@ -135,6 +139,7 @@ export function TodoProvider({ children }: { children: React.ReactNode }) {
         moveTaskDown,
         isFirstTask,
         isLastTask,
+        deleteAllCompleted,
       }}
     >
       {children}

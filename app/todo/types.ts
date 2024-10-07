@@ -17,4 +17,5 @@ export interface TodoContextType {
   moveTaskDown: (id: string) => void;
   isFirstTask: (id: string) => boolean;
   isLastTask: (id: string) => boolean;
+  deleteAllCompleted: () => void;
 }

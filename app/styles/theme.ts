@@ -1,9 +1,7 @@
 export const theme = {
   text: {
     highContrast: 'text-primary-950 dark:text-primary-50',
-    // mediumContrast: 'text-primary-900 dark:text-primary-100',
     lowContrast: 'text-primary-700 dark:text-primary-500',
-    // inverse: 'text-primary-50 dark:text-primary-950',
   },
   link: {
     currentPageSoInactiveLink: 'text-primary-950 dark:text-primary-600',
