@@ -1,6 +1,7 @@
 import { theme } from '@/app/styles/theme';
 import SingleTask from './SingleTask';
 import { useTodo } from '@/app/contexts/TodoContext';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const TodoList = () => {
   const { tasks, deleteAllCompleted } = useTodo();
@@ -17,9 +18,13 @@ const TodoList = () => {
       <h2 className={`${theme.text.highContrast} text-2xl my-2`}>
         {labelText}
       </h2>
-      {tasks.map((task) => {
-        return <SingleTask key={task.id} task={task} />;
-      })}
+      <motion.div layout transition={{ type: 'spring', stiffness: 300 }}>
+        <AnimatePresence>
+          {tasks.map((task) => {
+            return <SingleTask key={task.id} task={task} />;
+          })}
+        </AnimatePresence>
+      </motion.div>
       <div className='flex mt-4'>
         {anyCompleted ? (
           <button
