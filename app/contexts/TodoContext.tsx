@@ -34,14 +34,14 @@ export function TodoProvider({ children }: { children: React.ReactNode }) {
 
   const toggleCompleted = (id: string) => {
     setTasks((prev) =>
-      prev.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      prev.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
       )
     );
   };
 
   const deleteTask = (id: string) => {
-    setTasks((prev) => prev.filter((todo) => todo.id !== id));
+    setTasks((prev) => prev.filter((task) => task.id !== id));
   };
 
   const editTask = (id: string, text: string) => {
@@ -50,6 +50,76 @@ export function TodoProvider({ children }: { children: React.ReactNode }) {
         task.id === id ? { ...task, text: text } : task
       )
     );
+  };
+
+  const isFirstTask = (id: string): boolean => {
+    if (tasks.length === 0) {
+      console.log('isFirstTask called on empty task array!');
+
+      return false;
+    }
+    return tasks[0].id === id;
+  };
+
+  const isLastTask = (id: string): boolean => {
+    if (tasks.length === 0) {
+      console.log('isLastTask called on empty task array!');
+
+      return false;
+    }
+    return tasks[tasks.length - 1].id === id;
+  };
+
+  const moveTaskUp = (id: string) => {
+    const index = tasks.findIndex((task) => task.id === id);
+
+    if (index < 0 || index >= tasks.length) {
+      console.log(`Could not find task with ID: ${id}`);
+      return;
+    }
+    if (index == 0) {
+      console.log(
+        `Tried to move task forward that was already first in the list! ID: ${id}`
+      );
+      return;
+    }
+
+    // Create a copy of the task array
+    const newTasks = [...tasks];
+
+    // Switch the relevant task with the one before it
+    [newTasks[index - 1], newTasks[index]] = [
+      newTasks[index],
+      newTasks[index - 1],
+    ];
+
+    setTasks(newTasks);
+  };
+
+  const moveTaskDown = (id: string) => {
+    const index = tasks.findIndex((task) => task.id === id);
+
+    if (index < 0 || index >= tasks.length) {
+      console.log(`Could not find task with ID: ${id}`);
+      return;
+    }
+    if (index === tasks.length - 1) {
+      console.log(
+        `Tried to move task backward that was already last in the list! ID: ${id}`
+      );
+      return;
+    }
+
+    // Create a copy of the task array
+    const newTasks = [...tasks];
+
+    // Switch the relevant task with the one after it
+    [newTasks[index], newTasks[index + 1]] = [
+      newTasks[index + 1],
+      newTasks[index],
+    ];
+
+    setTasks(newTasks);
   };
 
   return (
@@ -61,6 +131,10 @@ export function TodoProvider({ children }: { children: React.ReactNode }) {
         toggleCompleted,
         deleteTask,
         editTask,
+        moveTaskUp,
+        moveTaskDown,
+        isFirstTask,
+        isLastTask,
       }}
     >
       {children}
