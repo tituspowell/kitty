@@ -12,8 +12,8 @@ import {
 const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 
 const MovieCard = ({ movie }: { movie: Movie }) => {
-  const { title, poster_path, overview, vote_average } = movie;
-  const imageUrl = `${BASE_IMAGE_URL}${poster_path}`;
+  const { title, poster_path, overview, vote_average, vote_count } = movie;
+  const imageUrl = poster_path ? `${BASE_IMAGE_URL}${poster_path}` : '';
   const MIN_CHARS_FOR_EXPAND = 100;
   const overviewIsShort = overview.length <= MIN_CHARS_FOR_EXPAND;
   const [showFullText, setShowFullText] = useState(false);
@@ -27,14 +27,16 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
       className={`card ${theme.bg.highContrast} w-72 shadow-xl justify-center align-top p-4`}
     >
       <figure>
-        <Image
-          src={imageUrl}
-          alt={title}
-          width={256}
-          height={256}
-          priority
-          className='object-cover'
-        />
+        {imageUrl && (
+          <Image
+            src={imageUrl}
+            alt={title}
+            width={256}
+            height={384}
+            priority
+            className='w-full h-auto object-cover'
+          />
+        )}
       </figure>
       <div className='card-body grid align-top'>
         <h2 className={`${theme.text.highContrast} font-bold`}>{title}</h2>
@@ -42,7 +44,10 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
           <StarIconWithClass
             className={`${theme.text.highContrast} mx-1 inline-block align-middle`}
           />
-          <span className='align-middle'>{vote_average.toFixed(1)}</span>
+          <span className='align-middle'>
+            <span className='font-bold'>{vote_average.toFixed(1)}</span> (
+            {vote_count} votes)
+          </span>
         </h3>
         {showFullText || overviewIsShort ? (
           <div className='grid'>
