@@ -9,9 +9,6 @@ export default function MoviesPage() {
       <ToastContainer />
       <Hero />
       <MoviesContainer />
-      <h4>
-        More movie stuffs here and remember the attribution image for TMDB!
-      </h4>
     </div>
   );
 }
