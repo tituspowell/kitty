@@ -17,8 +17,7 @@ const MoviesContainer = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const filterResults = (results: Movie[]): Movie[] => {
-    console.log(results.length);
-
+    // TMDB only gives us 20 results, annoyingly
     // Filter out the ones without images because that looks rubbish in the display
     const resultsWithImages = results.filter(
       (result) =>
@@ -36,8 +35,6 @@ const MoviesContainer = () => {
     setLoading(true);
 
     try {
-      console.log(url);
-
       const response = await fetch(url);
       const data: MovieResponse = await response.json();
       const filteredResults = filterResults(data.results);
@@ -52,6 +49,8 @@ const MoviesContainer = () => {
   useEffect(() => {
     fetchMoviesData();
   }, [query]);
+
+  // TODO - figure out why there is a long delay before the loading spinner shows
 
   if (loading) {
     // Server-side rendering and we don't have access to localStorage, so show a loading spinner

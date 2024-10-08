@@ -38,7 +38,7 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
           />
         )}
       </figure>
-      <div className='card-body grid align-top'>
+      <div className='card-body grid align-top mt-2'>
         <h2 className={`${theme.text.highContrast} font-bold`}>{title}</h2>
         <h3 className={`${theme.text.highContrast}`}>
           <StarIconWithClass
@@ -50,7 +50,7 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
           </span>
         </h3>
         {showFullText || overviewIsShort ? (
-          <div className='grid'>
+          <div className='grid mt-2'>
             <p className={`${theme.text.lowContrast}`}>{overview}</p>
             <button onClick={toggleExpand}>
               {!overviewIsShort && (
@@ -61,7 +61,7 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
             </button>
           </div>
         ) : (
-          <div className='grid'>
+          <div className='grid mt-2'>
             <p className={`${theme.text.lowContrast}`}>
               {overview.slice(0, MIN_CHARS_FOR_EXPAND)}...
             </p>

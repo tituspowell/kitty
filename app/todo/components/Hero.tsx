@@ -6,7 +6,7 @@ import { theme } from '../../styles/theme';
 // Is this component technically a hero? Kitty is a hero to me and I won't hear a word to the contrary
 const Hero = () => {
   return (
-    <section className='grid grid-cols-2 justify-items-stretch align-top p-4 mb-4'>
+    <section className='grid grid-cols-2 gap-4 justify-items-stretch align-top p-4 mb-4'>
       <div className='relative group'>
         {/* When the user hovers over the image, a cute speech bubble appears saying 'meeep!'. This is
         achieved by having two images, one with the speech bubble and one without, and transitioning
@@ -34,12 +34,14 @@ const Hero = () => {
         >
           Kitty's
         </h1>
-        <h1 className={`${theme.text.highContrast} text-4xl mt-2`}>
+        <h1
+          className={`${theme.text.highContrast} text-2xl sm:text-3xl md:text-4xl mt-2`}
+        >
           TO <span className={`${theme.strikethrough} line-through`}>DO</span>{' '}
           LIST
         </h1>
         <h1
-          className={`${theme.text.lowContrast} text-2xl italic mt-[-0.75rem] pr-6`}
+          className={`${theme.text.lowContrast} text-2xl italic mt-[-0.75rem] pr-4`}
         >
           mew
         </h1>
