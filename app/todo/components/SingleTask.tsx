@@ -61,7 +61,7 @@ const SingleTask = ({ task }: { task: Task }) => {
             {/* Normal version, showing the task plus a Delete and an Edit button */}
             <button
               onClick={() => toggleCompleted(task.id)}
-              className={`flex-1 ${theme.task}`}
+              className={`flex-1 text-nowrap overflow-hidden justify-start ${theme.task}`}
             >
               <div className='flex'>
                 {task.completed ? (
@@ -70,7 +70,7 @@ const SingleTask = ({ task }: { task: Task }) => {
                   <PawIconWithClass className='text-xl my-auto mx-2' />
                 )}
                 <h4
-                  className={`flex-1 flex text-lg rounded-l pl-2 ${
+                  className={`flex-1 flex text-lg rounded-l pl-2 text-nowrap overflow-hidden ${
                     task.completed && 'line-through'
                   }`}
                 >
@@ -81,14 +81,14 @@ const SingleTask = ({ task }: { task: Task }) => {
             {/* Delete button
               We don't use the BouncyButton component for the buttons here because they vanish as soon as they are clicked */}
             <button
-              className={`${theme.button.primary} mx-0 w-20`}
+              className={`${theme.button.primary} mx-0 w-16`}
               onClick={() => deleteTask(id)}
             >
               Delete
             </button>
             {/* Edit button */}
             <button
-              className={`${theme.button.secondary} mx-0 w-20`}
+              className={`${theme.button.secondary} mx-0 w-16`}
               onClick={handleEdit}
             >
               Edit
@@ -130,14 +130,14 @@ const SingleTask = ({ task }: { task: Task }) => {
             </div>
             {/* Update button */}
             <button
-              className={`${theme.button.primary} mx-0 w-20`}
+              className={`${theme.button.primary} mx-0 w-16`}
               onClick={handleUpdate}
             >
               Update
             </button>
             {/* Cancel button */}
             <button
-              className={`${theme.button.secondary} mx-0 w-20`}
+              className={`${theme.button.secondary} mx-0 w-16`}
               onClick={() => setIsEditing(false)}
             >
               Cancel
