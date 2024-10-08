@@ -9,7 +9,7 @@ import {
 } from '../../icons';
 
 // 'w500' is the image size; can also be w342, w185, w154 and w92, for smaller, or w780 or original for larger
-const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
+const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w342';
 
 const MovieCard = ({ movie }: { movie: Movie }) => {
   const { title, poster_path, overview, vote_average, vote_count } = movie;
@@ -24,7 +24,7 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
 
   return (
     <article
-      className={`card ${theme.bg.highContrast} w-72 shadow-xl justify-center align-top p-4`}
+      className={`card ${theme.card} w-72 shadow-xl justify-center align-top p-4 m-2`}
     >
       <figure>
         {imageUrl && (
@@ -34,12 +34,14 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
             width={256}
             height={384}
             priority
-            className='w-full h-auto object-cover'
+            className='w-64 h-auto object-cover'
           />
         )}
       </figure>
       <div className='card-body grid align-top mt-2'>
-        <h2 className={`${theme.text.highContrast} font-bold`}>{title}</h2>
+        <h2 className={`${theme.text.highContrast} text-lg font-bold`}>
+          {title}
+        </h2>
         <h3 className={`${theme.text.highContrast}`}>
           <StarIconWithClass
             className={`${theme.text.highContrast} mx-1 inline-block align-middle`}
@@ -51,7 +53,7 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
         </h3>
         {showFullText || overviewIsShort ? (
           <div className='grid mt-2'>
-            <p className={`${theme.text.lowContrast}`}>{overview}</p>
+            <p className={`${theme.text.cardSecondary}`}>{overview}</p>
             <button onClick={toggleExpand}>
               {!overviewIsShort && (
                 <UpArrowIconWithClass
@@ -62,7 +64,7 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
           </div>
         ) : (
           <div className='grid mt-2'>
-            <p className={`${theme.text.lowContrast}`}>
+            <p className={`${theme.text.cardSecondary}`}>
               {overview.slice(0, MIN_CHARS_FOR_EXPAND)}...
             </p>
             <button onClick={toggleExpand}>

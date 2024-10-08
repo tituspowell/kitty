@@ -2,11 +2,12 @@ export const theme = {
   text: {
     highContrast: 'text-primary-950 dark:text-primary-50',
     lowContrast: 'text-primary-700 dark:text-primary-500',
+    cardSecondary: 'text-primary-700 dark:text-primary-50',
   },
   bg: {
     highContrast: 'text-primary-50 dark:text-primary-950',
-    // lowContrast: 'text-primary-500 dark:text-primary-700',
   },
+  card: 'text-primary-950 dark:text-primary-50 bg-primary-50 dark:bg-primary-950',
   link: {
     currentPageSoInactiveLink: 'text-primary-950 dark:text-primary-600',
     activeLink:

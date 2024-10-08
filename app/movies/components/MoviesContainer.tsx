@@ -4,8 +4,8 @@ import { Movie, MovieResponse } from '../types';
 import React, { useEffect, useState } from 'react';
 import SearchInputForm from './SearchInputForm';
 import MovieSearchResults from './MovieSearchResults';
-import Image from 'next/image';
-import TMDBAttributionImage from '../images/tmdb.svg';
+import { theme } from '@/app/styles/theme';
+import TMDBAttribution from './TMDBAttribution';
 
 // TMDB has a Search API and a Discovery API. The Search API has a fixed number of results (20) unless implementing
 // pagination, which would be overkill for this mini-app. The Discovery API supports parameters for sorting and increasing
@@ -64,18 +64,14 @@ const MoviesContainer = () => {
   return (
     <section>
       <SearchInputForm setQuery={setQuery} defaultInput={query} />
-      <MovieSearchResults movies={movies} />
-      <div className='flex gap-2 mb-4'>
-        <p>Search results provided by</p>
-        <Image
-          src={TMDBAttributionImage}
-          width={256}
-          height={256}
-          alt='TMDB'
-          priority
-          className=''
-        ></Image>
-      </div>
+      {movies.length > 0 ? (
+        <MovieSearchResults movies={movies} />
+      ) : (
+        <h2 className={`${theme.text.highContrast} text-2xl my-12`}>
+          Meep! No results found!
+        </h2>
+      )}
+      <TMDBAttribution />
     </section>
   );
 };
