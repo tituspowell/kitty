@@ -4,8 +4,12 @@ import { useState } from 'react';
 import { Task } from '../types';
 import { useTodo } from '@/app/contexts/TodoContext';
 import { theme } from '@/app/styles/theme';
-import { PawIconWithClass, TickIconWithClass } from '../../icons';
-import { SlArrowUp, SlArrowDown } from 'react-icons/sl';
+import {
+  PawIconWithClass,
+  TickIconWithClass,
+  UpArrowIconWithClass,
+  DownArrowIconWithClass,
+} from '../../icons';
 import { toast } from 'react-toastify';
 import { motion } from 'framer-motion';
 
@@ -98,7 +102,7 @@ const SingleTask = ({ task }: { task: Task }) => {
                   first ? theme.button.arrowDisabled : theme.button.arrow
                 }`}
               >
-                <SlArrowUp />
+                <UpArrowIconWithClass />
               </button>
               {/* Down arrow button */}
               <button
@@ -108,7 +112,7 @@ const SingleTask = ({ task }: { task: Task }) => {
                   last ? theme.button.arrowDisabled : theme.button.arrow
                 }`}
               >
-                <SlArrowDown />
+                <DownArrowIconWithClass />
               </button>
             </div>
           </div>

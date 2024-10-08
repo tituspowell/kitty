@@ -3,6 +3,10 @@ export const theme = {
     highContrast: 'text-primary-950 dark:text-primary-50',
     lowContrast: 'text-primary-700 dark:text-primary-500',
   },
+  bg: {
+    highContrast: 'text-primary-50 dark:text-primary-950',
+    // lowContrast: 'text-primary-500 dark:text-primary-700',
+  },
   link: {
     currentPageSoInactiveLink: 'text-primary-950 dark:text-primary-600',
     activeLink:
