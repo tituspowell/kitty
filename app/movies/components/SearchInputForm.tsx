@@ -1,44 +1,57 @@
 'use client';
 
-import React, { FormEvent, useEffect, useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import { SearchIconWithClass } from '../../icons';
+import { toast } from 'react-toastify';
+import { theme } from '@/app/styles/theme';
+import BouncyButton from '../../components/BouncyButton';
 
 interface SearchComponentProps {
+  defaultInput: string;
   setQuery: (query: string) => void;
 }
 
-const SearchInputForm = ({ setQuery }: SearchComponentProps) => {
-  const [input, setInput] = useState('cat');
+const SearchInputForm = ({ defaultInput, setQuery }: SearchComponentProps) => {
+  const [input, setInput] = useState(defaultInput);
 
-  const loading = false; // TODO
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(`Search term is: ${input}`);
+    console.log(`Searching for: ${input}`);
 
-    if (input) {
-      setQuery(input);
+    // Use Toastify for the error alert
+    if (!input) {
+      toast.error('Meep! Please enter a task description!');
+      return;
     }
+
+    setQuery(input);
+
+    // Clear the input after successfully adding a task
+    setInput('');
   };
 
   return (
-    <div className='max-w-4xl mx-auto p-4'>
-      <form onSubmit={handleSubmit} className='mb-8'>
-        <div className='flex gap-2'>
-          <input
-            type='text'
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder='I searches for movies...'
-            // className='flex-grow'
-          />
-          <button type='submit' disabled={loading}>
-            <SearchIconWithClass className='mr-2 h-4 w-4' />
-            Search
-          </button>
-        </div>
-      </form>
-    </div>
+    <form
+      className={`m-4 flex max-w-[600px] mx-auto`}
+      onSubmit={handleFormSubmit}
+    >
+      <SearchIconWithClass className='text-xl my-auto mx-2' />
+      <input
+        type='text'
+        placeholder='I searches movies here...'
+        value={input}
+        onChange={(e) => {
+          setInput(e.target.value);
+        }}
+        className={`px-4 pt-1 pb-2 flex-1 rounded-l border ${theme.border} text-black text-xl bg-primary-50 focus:outline-none focus:ring-0`}
+      />
+      <BouncyButton
+        isSubmitType={true}
+        text='Search'
+        className={`${theme.button.primary} rounded-r mx-0 w-20 px-4 text-lg`}
+        onClick={() => {}}
+      />
+    </form>
   );
 };
 

@@ -14,7 +14,7 @@ const MIN_VOTE_COUNT = 10;
 const MoviesContainer = () => {
   const [query, setQuery] = useState<string>('cat');
   const [movies, setMovies] = useState<Movie[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const filterResults = (results: Movie[]): Movie[] => {
     // TMDB only gives us 20 results, annoyingly
@@ -50,8 +50,6 @@ const MoviesContainer = () => {
     fetchMoviesData();
   }, [query]);
 
-  // TODO - figure out why there is a long delay before the loading spinner shows
-
   if (loading) {
     // Server-side rendering and we don't have access to localStorage, so show a loading spinner
     return (
@@ -63,7 +61,7 @@ const MoviesContainer = () => {
 
   return (
     <section>
-      <SearchInputForm setQuery={setQuery} />
+      <SearchInputForm setQuery={setQuery} defaultInput={query} />
       <MovieSearchResults movies={movies} />
     </section>
   );

@@ -4,7 +4,7 @@ import { FormEvent, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useTodo } from '@/app/contexts/TodoContext';
 import { theme } from '@/app/styles/theme';
-import BouncyButton from './BouncyButton';
+import BouncyButton from '../../components/BouncyButton';
 
 const InputForm = () => {
   const [input, setInput] = useState('');
