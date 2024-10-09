@@ -1,3 +1,5 @@
+// Iterates through an array of movies, displaying the MovieCard subcomponent for each in a grid
+
 import { Movie } from '../types';
 import MovieCard from './MovieCard';
 
@@ -10,4 +12,5 @@ const MovieSearchResults = ({ movies }: { movies: Movie[] }) => {
     </section>
   );
 };
+
 export default MovieSearchResults;

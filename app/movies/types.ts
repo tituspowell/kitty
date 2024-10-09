@@ -9,6 +9,11 @@ export interface Movie {
   overview: string;
 }
 
+export interface SearchComponentProps {
+  defaultInput: string;
+  setQuery: (query: string) => void;
+}
+
 export interface MovieResponse {
   results: Movie[];
 }

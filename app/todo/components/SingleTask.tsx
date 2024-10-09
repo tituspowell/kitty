@@ -1,3 +1,5 @@
+// Renders a single interactive task in the task list
+
 'use client';
 
 import { useState } from 'react';
@@ -15,8 +17,15 @@ import { motion } from 'framer-motion';
 
 const SingleTask = ({ task }: { task: Task }) => {
   const { id, text } = task;
+
+  // By default, this single task displays its description plus a Delete and an Edit button. When
+  // the user clicks Edit, 'isEditing' mode is enabled, and different elements are rendered instead:
+  // an input field for the new description, plus an Update button to submit the change and a Cancel
+  // button to revert back. These local state variables keep track of that
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [input, setInput] = useState<string>('');
+
+  // Retrieve various functions we'll need from the Context API through the useTodo custom hook
   const {
     toggleCompleted,
     deleteTask,
@@ -27,11 +36,14 @@ const SingleTask = ({ task }: { task: Task }) => {
     isLastTask,
   } = useTodo();
 
+  // The user clicked 'Edit' so switch into editing mode and set the input for the new description
+  // to be the current task description
   const handleEdit = () => {
     setIsEditing(true);
     setInput(text);
   };
 
+  // The user clicked 'Update' after editing the task description
   const handleUpdate = () => {
     if (!input) {
       toast.error('Meep! Please enter a value!');
@@ -42,11 +54,13 @@ const SingleTask = ({ task }: { task: Task }) => {
     setIsEditing(false);
   };
 
+  // It's useful for this SingleTask component to know if it is first or last in the list
+  // so that it can disable the 'move up' or 'move down' functionality if appropriate
   const first: boolean = isFirstTask(id);
   const last: boolean = isLastTask(id);
 
   return (
-    // Use Framer Motion library to have nice animation effects
+    // Use Framer Motion library to wrap the JSX so we can have nice animation effects
     <motion.div
       layout
       initial={{ opacity: 0, y: -10 }} // Starting state (invisible and slightly above)
@@ -64,11 +78,13 @@ const SingleTask = ({ task }: { task: Task }) => {
               className={`flex-1 text-nowrap overflow-hidden justify-start ${theme.task}`}
             >
               <div className='flex'>
+                {/* Show a tick icon if the task is completed, or a paw icon if not */}
                 {task.completed ? (
                   <TickIconWithClass className='text-xl my-auto mx-2' />
                 ) : (
                   <PawIconWithClass className='text-xl my-auto mx-2' />
                 )}
+                {/* Display the task description and put a line through it if completed */}
                 <h4
                   className={`flex-1 flex text-lg rounded-l pl-2 text-nowrap overflow-hidden ${
                     task.completed && 'line-through'
@@ -94,7 +110,7 @@ const SingleTask = ({ task }: { task: Task }) => {
               Edit
             </button>
             <div className='grid'>
-              {/* Up arrow button */}
+              {/* Up arrow button to move the task up in the task list, unless already at the top */}
               <button
                 disabled={first}
                 onClick={() => moveTaskUp(id)}
@@ -104,7 +120,7 @@ const SingleTask = ({ task }: { task: Task }) => {
               >
                 <UpArrowIconWithClass />
               </button>
-              {/* Down arrow button */}
+              {/* Down arrow button to move the task down in the task list, unless already at the bottom */}
               <button
                 disabled={last}
                 onClick={() => moveTaskDown(id)}
@@ -118,7 +134,7 @@ const SingleTask = ({ task }: { task: Task }) => {
           </div>
         ) : (
           <div className='flex py-0.5 h-[36px]'>
-            {/* 'Editing' version, showing the task as an input plus an Update and a Cancel button */}
+            {/* 'isEditing' version, showing the task as an input plus an Update and a Cancel button */}
             <div className={`flex flex-1`}>
               <input
                 className={`flex-1 text-black bg-primary-50 text-lg rounded-l pl-2 focus:outline-none focus:ring-0 focus:border-none`}
@@ -142,7 +158,7 @@ const SingleTask = ({ task }: { task: Task }) => {
             >
               Cancel
             </button>
-            {/* Empty div to maintain alignment */}
+            {/* Empty div to maintain alignment; this is where other tasks have the up and down arrows */}
             <div className={`w-4 ${theme.button.arrowDisabled}`}></div>
           </div>
         )}
@@ -150,4 +166,5 @@ const SingleTask = ({ task }: { task: Task }) => {
     </motion.div>
   );
 };
+
 export default SingleTask;

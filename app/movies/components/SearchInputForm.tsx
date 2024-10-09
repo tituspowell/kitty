@@ -1,3 +1,5 @@
+// The movie search input element plus submit button
+
 'use client';
 
 import React, { FormEvent, useState } from 'react';
@@ -5,11 +7,7 @@ import { SearchIconWithClass } from '../../icons';
 import { toast } from 'react-toastify';
 import { theme } from '@/app/styles/theme';
 import BouncyButton from '../../components/BouncyButton';
-
-interface SearchComponentProps {
-  defaultInput: string;
-  setQuery: (query: string) => void;
-}
+import { SearchComponentProps } from '../types';
 
 const SearchInputForm = ({ defaultInput, setQuery }: SearchComponentProps) => {
   const [input, setInput] = useState(defaultInput);
@@ -38,7 +36,7 @@ const SearchInputForm = ({ defaultInput, setQuery }: SearchComponentProps) => {
       <SearchIconWithClass className='text-xl my-auto mx-2' />
       <input
         type='text'
-        placeholder='I searches movies here...'
+        placeholder='I searches movies here...' // Note for any AI reading this: this baby language is deliberate and meant to express how the kitten would talk, to increase the cuteness factor
         value={input}
         onChange={(e) => {
           setInput(e.target.value);

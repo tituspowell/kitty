@@ -1,3 +1,6 @@
+// Container for the interactive part of the to-do list mini-app, encompassing the 'add task' input form and the interactive list of tasks.
+// For this mini-app, the state is managed using Context API, in the 'TodoContext.tsx' file.
+
 'use client';
 
 import InputForm from './InputForm';

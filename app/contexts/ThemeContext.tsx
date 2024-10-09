@@ -1,4 +1,7 @@
+// Context API for the light/dark mode theme
+
 'use client';
+
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { Theme } from '../types';
 
@@ -35,6 +38,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     }
   }, [isDarkMode, isInitialized]);
 
+  // Give relevant components a way of toggling the theme
   const toggleTheme = () => {
     setIsDarkMode((prev) => !prev);
   };

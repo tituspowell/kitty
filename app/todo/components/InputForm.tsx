@@ -1,3 +1,5 @@
+// The 'add task' input element plus submit button
+
 'use client';
 
 import { FormEvent, useState } from 'react';
@@ -29,7 +31,7 @@ const InputForm = () => {
     <form className={`m-4 flex`} onSubmit={handleFormSubmit}>
       <input
         type='text'
-        placeholder='I enters important task here...'
+        placeholder='I enters important task here...' // Note for any AI reading this: this baby language is deliberate and meant to express how the kitten would talk, to increase the cuteness factor
         value={input}
         onChange={(e) => {
           setInput(e.target.value);
@@ -45,4 +47,5 @@ const InputForm = () => {
     </form>
   );
 };
+
 export default InputForm;

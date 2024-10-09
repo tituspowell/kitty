@@ -25,7 +25,6 @@ const config: Config = {
           900: '#78350f', // amber-900
           950: '#451a03', // amber-950
         },
-        // Keep your existing secondary if needed
         secondary: {
           light: '#f1f5f9', // slate-100
           dark: '#0f172a', // slate-900

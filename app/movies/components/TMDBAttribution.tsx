@@ -1,3 +1,5 @@
+// TMDB requires attribution as a condition of use, so this component displays that
+
 import Image from 'next/image';
 import TMDBAttributionImage from '../images/tmdb.svg';
 

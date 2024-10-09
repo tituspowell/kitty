@@ -1,3 +1,8 @@
+// These are Tailwind class combos encompassing both a light mode and a dark mode variant,
+// so as to avoid lots of repetition in the styling of components. 'primary' is used rather
+// than the specific colour theme used (Amber in this case) just in case I wanted to change
+// it easily. They are defined in tailwind.config.ts
+
 export const theme = {
   text: {
     highContrast: 'text-primary-950 dark:text-primary-50',

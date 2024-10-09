@@ -6,8 +6,8 @@ import { FaSearch } from 'react-icons/fa';
 import { SlArrowUp, SlArrowDown } from 'react-icons/sl';
 import { FaStar } from 'react-icons/fa6';
 
-// The React icons don't have a className prop so Typescript complains (yet still works) if Tailwind classes
-// are assigned directly to the icons. So instead we wrap them
+// The React-Icons icons don't have a className prop so Typescript complains (yet still works)
+// if Tailwind classes are assigned directly to the icons. So instead we wrap them and use these
 
 // Icons used globally
 
