@@ -18,27 +18,31 @@ const StoryInputForm = ({ isGenerating, generateStory }: StoryInputProps) => {
   const validInputs: boolean = object !== '' && setting !== '';
 
   return (
-    <form className={`p-4 grid grid-cols-1 max-w-[600px] mx-auto`}>
-      <h4 className='text-xl my-2'>Create a story about a kitten and a...</h4>
-      <input
-        type='text'
-        placeholder='e.g., turtle, magic wand, pony'
-        value={object}
-        onChange={(e) => {
-          setObject(e.target.value);
-        }}
-        className={`px-4 pt-1 pb-2 flex-1 rounded-l border ${theme.border} text-black text-xl bg-primary-50 focus:outline-none focus:ring-0`}
-      />
-      <h4 className='text-xl my-2'>in a...</h4>
-      <input
-        type='text'
-        placeholder='e.g., forest, boat, castle'
-        value={setting}
-        onChange={(e) => {
-          setSetting(e.target.value);
-        }}
-        className={`px-4 pt-1 pb-2 flex-1 rounded-l border ${theme.border} text-black text-xl bg-primary-50 focus:outline-none focus:ring-0`}
-      />
+    <form className={`p-4 grid grid-cols-1 max-w-[900px] mx-auto`}>
+      <h4 className='text-xl sm:text-2xl my-2'>
+        Create a story about a kitten and a...
+      </h4>
+      <div className='flex flex-col md:flex-row'>
+        <input
+          type='text'
+          placeholder='e.g., turtle, magic wand'
+          value={object}
+          onChange={(e) => {
+            setObject(e.target.value);
+          }}
+          className={`px-4 pt-1 pb-2 w-full rounded-l border ${theme.border} text-black text-xl bg-primary-50 focus:outline-none focus:ring-0`}
+        />
+        <h4 className='text-xl my-2 w-1/4 p-2 md:place-self-center'>in a...</h4>
+        <input
+          type='text'
+          placeholder='e.g., forest, spaceship'
+          value={setting}
+          onChange={(e) => {
+            setSetting(e.target.value);
+          }}
+          className={`px-4 pt-1 pb-2 w-full rounded-l border ${theme.border} text-black text-xl bg-primary-50 focus:outline-none focus:ring-0`}
+        />
+      </div>
       {validInputs && (
         <button
           onClick={handleClick}

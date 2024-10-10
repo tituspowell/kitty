@@ -1,14 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import StoryInputForm from './StoryInputForm';
 import StoryResults from './StoryResults';
 import { StoryRequest } from '../types';
-
-const defaultPrompt: StoryRequest = {
-  object: 'turtle',
-  setting: 'a beach',
-};
 
 const StoryContainer = () => {
   const [storyResult, setStoryResult] = useState<string>('');

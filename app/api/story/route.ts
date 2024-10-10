@@ -77,15 +77,7 @@ export async function POST(request: Request) {
     let story = result[0].generated_text;
 
     // Clean up the response
-    story = story
-      .replace(/^(Here's a story:|Once upon a time,)/i, 'Once upon a time,')
-      .replace(/["""]/g, '"')
-      .trim();
-
-    // Ensure the story ends with punctuation
-    if (!story.endsWith('.') && !story.endsWith('!') && !story.endsWith('?')) {
-      story += '...';
-    }
+    story = cleanUpStoryResponse(story);
 
     const successResponse: StoryResponse = { story };
     return NextResponse.json(successResponse);
@@ -99,3 +91,24 @@ export async function POST(request: Request) {
     return NextResponse.json(errorResponse, { status: 500 });
   }
 }
+
+const cleanUpStoryResponse = (story: string): string => {
+  // Occasionally the generated story adds a user follow-up question or an assistant end tag; cut it off from there if so
+  let unnecessaryBit = story.indexOf('<');
+  if (unnecessaryBit !== -1) {
+    story = story.slice(0, unnecessaryBit);
+  }
+
+  story = story
+    // .replace(/^(Here's a story:|Once upon a time,)/i, 'Once upon a time,')
+    // .replace(/["""]/g, '"')
+    .trim();
+
+  // Ensure the story ends with punctuation. Sometimes it overruns and gets cut off,
+  // so better to end with '...' than just stopping
+  if (!story.endsWith('.') && !story.endsWith('!') && !story.endsWith('?')) {
+    story += '...';
+  }
+
+  return story;
+};

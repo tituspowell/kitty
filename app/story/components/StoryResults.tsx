@@ -6,7 +6,7 @@ const StoryResults = ({ story }: { story: string }) => {
       <div
         className={`card ${theme.card} shadow-xl justify-center align-top p-4 m-4`}
       >
-        <h2 className='text-xl font-bold mb-2'>Kitty's Little Adventure</h2>
+        <h2 className='text-xl font-bold mb-2'>Kitty's Big Adventure</h2>
         <p className=''>{story}</p>
       </div>
     </section>
