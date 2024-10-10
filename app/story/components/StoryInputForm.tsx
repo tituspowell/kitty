@@ -42,7 +42,7 @@ const StoryInputForm = ({ isGenerating, generateStory }: StoryInputProps) => {
       {validInputs && (
         <button
           onClick={handleClick}
-          className='bg-green-500 text-white px-6 py-2 rounded-md hover:bg-green-600 transition-colors'
+          className='bg-green-500 text-white px-6 mt-4 py-2 rounded-md hover:bg-green-600 transition-colors'
           disabled={isGenerating}
         >
           {isGenerating ? 'Creating Story...' : 'Generate Adventure!'}
