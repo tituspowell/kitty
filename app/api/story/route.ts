@@ -1,3 +1,9 @@
+import {
+  HuggingFaceResponse,
+  StoryErrorResponse,
+  StoryRequest,
+  StoryResponse,
+} from '@/app/story/types';
 import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
@@ -78,7 +84,7 @@ export async function POST(request: Request) {
 
     // Ensure the story ends with punctuation
     if (!story.endsWith('.') && !story.endsWith('!') && !story.endsWith('?')) {
-      story += '.';
+      story += '...';
     }
 
     const successResponse: StoryResponse = { story };

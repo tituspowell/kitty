@@ -1,17 +1,22 @@
-interface StoryRequest {
+export interface StoryRequest {
   object: string;
   setting: string;
 }
 
-interface StoryResponse {
+export interface StoryResponse {
   story: string;
 }
 
-interface StoryErrorResponse {
+export interface StoryErrorResponse {
   error: string;
   details?: string;
 }
 
-interface HuggingFaceResponse {
+export interface HuggingFaceResponse {
   generated_text: string;
+}
+
+export interface StoryInputProps {
+  isGenerating: boolean;
+  generateStory: (storyInputs: StoryRequest) => void;
 }
