@@ -2,7 +2,14 @@
 
 'use client';
 
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import { Theme } from '../types';
 
 const ThemeContext = createContext<Theme | undefined>(undefined);
@@ -38,13 +45,25 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     }
   }, [isDarkMode, isInitialized]);
 
-  // Give relevant components a way of toggling the theme
-  const toggleTheme = () => {
+  // Give relevant components a way of toggling the theme.
+  // Wrapped in useCallback for optimisation purposes
+  const toggleTheme = useCallback(() => {
     setIsDarkMode((prev) => !prev);
-  };
+  }, []);
+
+  // Memoize the context value. This prevents unnecessary re-renders of all
+  // consuming components when the context value hasn't actually changed. The
+  // The dependency array includes the value and the function in the context
+  const contextValue = useMemo(
+    () => ({
+      isDarkMode,
+      toggleTheme,
+    }),
+    [isDarkMode, toggleTheme]
+  );
 
   return (
-    <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
+    <ThemeContext.Provider value={contextValue}>
       {children}
     </ThemeContext.Provider>
   );

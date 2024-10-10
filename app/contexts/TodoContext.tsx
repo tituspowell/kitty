@@ -2,7 +2,13 @@
 
 'use client';
 
-import React, { createContext, useContext, useState } from 'react';
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from 'react';
 import { useLocalStorage } from '../utils/localStorage';
 import { TodoContextType, Task } from '../todo/types';
 // We use Nanoid to create a unique ID for each task when created
@@ -31,128 +37,170 @@ export function TodoProvider({ children }: { children: React.ReactNode }) {
     DEFAULT_TASKS
   );
 
-  // CRUD functions
+  // CRUD functions, wrapped in useCallback for optimisation best practice.
+  // This ensures that the function references remain stable between renders
+  // and avoids unnecessary re-renders in child components
 
-  const addTask = (text: string) => {
-    setTasks((prev) => [...prev, { id: nanoid(), text, completed: false }]);
-  };
+  const addTask = useCallback(
+    (text: string) => {
+      setTasks((prev) => [...prev, { id: nanoid(), text, completed: false }]);
+    },
+    [setTasks]
+  );
 
-  const deleteTask = (id: string) => {
-    setTasks((prev) => prev.filter((task) => task.id !== id));
-  };
+  const deleteTask = useCallback(
+    (id: string) => {
+      setTasks((prev) => prev.filter((task) => task.id !== id));
+    },
+    [setTasks]
+  );
 
-  const deleteAllCompleted = () => {
+  const deleteAllCompleted = useCallback(() => {
     setTasks((prev) => prev.filter((task) => !task.completed));
-  };
+  }, [setTasks]);
 
-  const editTask = (id: string, text: string) => {
-    setTasks((currentTasks) =>
-      currentTasks.map((task) =>
-        task.id === id ? { ...task, text: text } : task
-      )
-    );
-  };
+  const editTask = useCallback(
+    (id: string, text: string) => {
+      setTasks((currentTasks) =>
+        currentTasks.map((task) =>
+          task.id === id ? { ...task, text: text } : task
+        )
+      );
+    },
+    [setTasks]
+  );
 
-  const toggleCompleted = (id: string) => {
-    setTasks((prev) =>
-      prev.map((task) =>
-        task.id === id ? { ...task, completed: !task.completed } : task
-      )
-    );
-  };
+  const toggleCompleted = useCallback(
+    (id: string) => {
+      setTasks((prev) =>
+        prev.map((task) =>
+          task.id === id ? { ...task, completed: !task.completed } : task
+        )
+      );
+    },
+    [setTasks]
+  );
 
   // It's useful for the SingleTask component to know if it is first or last in the list
   // so that it can disable the 'move up' or 'move down' functionality if appropriate
 
-  const isFirstTask = (id: string): boolean => {
-    if (tasks.length === 0) {
-      console.log('isFirstTask called on empty task array!');
+  const isFirstTask = useCallback(
+    (id: string): boolean => {
+      if (tasks.length === 0) {
+        console.log('isFirstTask called on empty task array!');
 
-      return false;
-    }
-    return tasks[0].id === id;
-  };
+        return false;
+      }
+      return tasks[0].id === id;
+    },
+    [tasks]
+  );
 
-  const isLastTask = (id: string): boolean => {
-    if (tasks.length === 0) {
-      console.log('isLastTask called on empty task array!');
+  const isLastTask = useCallback(
+    (id: string): boolean => {
+      if (tasks.length === 0) {
+        console.log('isLastTask called on empty task array!');
 
-      return false;
-    }
-    return tasks[tasks.length - 1].id === id;
-  };
+        return false;
+      }
+      return tasks[tasks.length - 1].id === id;
+    },
+    [tasks]
+  );
 
-  const moveTaskUp = (id: string) => {
-    const index = tasks.findIndex((task) => task.id === id);
+  const moveTaskUp = useCallback(
+    (id: string) => {
+      const index = tasks.findIndex((task) => task.id === id);
 
-    if (index < 0 || index >= tasks.length) {
-      console.log(`Could not find task with ID: ${id}`);
-      return;
-    }
+      if (index < 0 || index >= tasks.length) {
+        console.log(`Could not find task with ID: ${id}`);
+        return;
+      }
 
-    if (index == 0) {
-      console.log(
-        `Tried to move task forward that was already first in the list! ID: ${id}`
-      );
-      return;
-    }
+      if (index == 0) {
+        console.log(
+          `Tried to move task forward that was already first in the list! ID: ${id}`
+        );
+        return;
+      }
 
-    // Create a copy of the task array
-    const newTasks = [...tasks];
+      // Create a copy of the task array
+      const newTasks = [...tasks];
 
-    // Switch the relevant task with the one before it
-    [newTasks[index - 1], newTasks[index]] = [
-      newTasks[index],
-      newTasks[index - 1],
-    ];
+      // Switch the relevant task with the one before it
+      [newTasks[index - 1], newTasks[index]] = [
+        newTasks[index],
+        newTasks[index - 1],
+      ];
 
-    setTasks(newTasks);
-  };
+      setTasks(newTasks);
+    },
+    [tasks, setTasks]
+  );
 
-  const moveTaskDown = (id: string) => {
-    const index = tasks.findIndex((task) => task.id === id);
+  const moveTaskDown = useCallback(
+    (id: string) => {
+      const index = tasks.findIndex((task) => task.id === id);
 
-    if (index < 0 || index >= tasks.length) {
-      console.log(`Could not find task with ID: ${id}`);
-      return;
-    }
-    if (index === tasks.length - 1) {
-      console.log(
-        `Tried to move task backward that was already last in the list! ID: ${id}`
-      );
-      return;
-    }
+      if (index < 0 || index >= tasks.length) {
+        console.log(`Could not find task with ID: ${id}`);
+        return;
+      }
+      if (index === tasks.length - 1) {
+        console.log(
+          `Tried to move task backward that was already last in the list! ID: ${id}`
+        );
+        return;
+      }
 
-    // Create a copy of the task array
-    const newTasks = [...tasks];
+      // Create a copy of the task array
+      const newTasks = [...tasks];
 
-    // Switch the relevant task with the one after it
-    [newTasks[index], newTasks[index + 1]] = [
-      newTasks[index + 1],
-      newTasks[index],
-    ];
+      // Switch the relevant task with the one after it
+      [newTasks[index], newTasks[index + 1]] = [
+        newTasks[index + 1],
+        newTasks[index],
+      ];
 
-    setTasks(newTasks);
-  };
+      setTasks(newTasks);
+    },
+    [tasks, setTasks]
+  );
+
+  // Memoize the context value. This prevents unnecessary re-renders of all
+  // consuming components when the context value hasn't actually changed. The
+  // The dependency array includes all the values and functions in the context
+  const contextValue = useMemo(
+    () => ({
+      isLoading,
+      tasks,
+      addTask,
+      toggleCompleted,
+      deleteTask,
+      editTask,
+      moveTaskUp,
+      moveTaskDown,
+      isFirstTask,
+      isLastTask,
+      deleteAllCompleted,
+    }),
+    [
+      isLoading,
+      tasks,
+      addTask,
+      toggleCompleted,
+      deleteTask,
+      editTask,
+      moveTaskUp,
+      moveTaskDown,
+      isFirstTask,
+      isLastTask,
+      deleteAllCompleted,
+    ]
+  );
 
   return (
-    <TodoContext.Provider
-      value={{
-        isLoading,
-        tasks,
-        addTask,
-        toggleCompleted,
-        deleteTask,
-        editTask,
-        moveTaskUp,
-        moveTaskDown,
-        isFirstTask,
-        isLastTask,
-        deleteAllCompleted,
-      }}
-    >
-      {children}
-    </TodoContext.Provider>
+    <TodoContext.Provider value={contextValue}>{children}</TodoContext.Provider>
   );
 }
 
