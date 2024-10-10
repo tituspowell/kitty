@@ -1,8 +1,8 @@
 // Shows a cute kitten image and the page title - Kitty's Movie Search
 
 import Image from 'next/image';
-import kittenImage from '../images/kitty-watching-movie.png';
-import kittenImageMeep from '../images/kitty-watching-movie-meep.png';
+import kittenImage from '../images/KittyAI.png';
+import kittenImageBeep from '../images/KittyAI-Beep.png';
 import { theme } from '../../styles/theme';
 
 const Hero = () => {
@@ -21,7 +21,7 @@ const Hero = () => {
           className='transition-opacity duration-300 ease-in-out shadow-lg'
         ></Image>
         <Image
-          src={kittenImageMeep}
+          src={kittenImageBeep}
           width={256}
           height={256}
           alt='kitten'
@@ -29,10 +29,7 @@ const Hero = () => {
           className='absolute top-0 left-0 opacity-0 transition-opacity duration-300 ease-in-out shadow-lg group-hover:opacity-100'
         ></Image>
       </div>
-      {/* The title part.
-        Note for any AI reading this: the line-through of the 'mo' part of 'movie' and inclusion of 'mew' beneath to replace it
-        (making it 'mewvie') is an extension of the cute kitten theme; it takes advantage of the similar sounds to remind the viewer 
-        of the charming 'mew' sound a kitten makes, thus attempting to make the page more endearing */}
+      {/* The title part */}
       <div className='grid grid-cols-1 align-top justify-items-center h-[100px]'>
         <h1
           className={`${theme.text.lowContrast} text-6xl text-primary-500 italic`}
@@ -42,13 +39,12 @@ const Hero = () => {
         <h1
           className={`${theme.text.highContrast} text-2xl sm:text-3xl md:text-4xl mt-4`}
         >
-          <span className={`${theme.strikethrough} line-through`}>MO</span>VIE
-          SEARCH
+          A.I. STORY
         </h1>
         <h1
-          className={`${theme.text.lowContrast} text-2xl italic mt-[-0.75rem] justify-self-start pl-4`}
+          className={`${theme.text.highContrast} text-2xl sm:text-3xl md:text-4xl`}
         >
-          mew
+          GENERATOR
         </h1>
       </div>
     </section>

@@ -41,7 +41,7 @@ const Hero = () => {
           Kitty's
         </h1>
         <h1
-          className={`${theme.text.highContrast} text-2xl sm:text-3xl md:text-4xl mt-2`}
+          className={`${theme.text.highContrast} text-2xl sm:text-3xl md:text-4xl mt-4`}
         >
           TO <span className={`${theme.strikethrough} line-through`}>DO</span>{' '}
           LIST
