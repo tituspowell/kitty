@@ -2,6 +2,8 @@ import Hero from './components/Hero';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import TasksContainer from './components/TasksContainer';
+import ExplainPleaseButton from '../components/ExplainPleaseButton';
+import { todoAppExplanation } from '../explanationTexts';
 
 export default function Home() {
   return (
@@ -9,6 +11,7 @@ export default function Home() {
       <ToastContainer />
       <Hero />
       <TasksContainer />
+      <ExplainPleaseButton text={todoAppExplanation} />
     </div>
   );
 }

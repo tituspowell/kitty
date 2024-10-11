@@ -19,7 +19,7 @@ const TodoList = () => {
   const labelText = tasksExist ? 'TO DO:' : 'All done! Meeep!';
 
   return (
-    <section className='p-4 mb-4'>
+    <section className='p-4'>
       {/* The label text */}
       <h2 className={`${theme.text.highContrast} text-2xl my-2`}>
         {labelText}
@@ -36,7 +36,7 @@ const TodoList = () => {
       </motion.div>
       {/* Conditionally render a 'delete all completed' button if appropriate,
         or a message encouraging them to click a task if not */}
-      <div className='flex mt-4'>
+      <div className='flex my-2'>
         {anyCompleted ? (
           <button
             className={`${theme.button.primary} px-4 pt-1 pb-2`}

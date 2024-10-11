@@ -16,17 +16,12 @@ export default function Home() {
           <h1
             className={`${theme.text.highContrast} text-2xl sm:text-3xl md:text-4xl mt-4`}
           >
-            SUITE OF
+            WEB DEV
           </h1>
           <h1
             className={`${theme.text.highContrast} text-2xl sm:text-3xl md:text-4xl`}
           >
-            <span className='italic'>REACT</span> DEMO
-          </h1>
-          <h1
-            className={`${theme.text.highContrast} text-2xl sm:text-3xl md:text-4xl`}
-          >
-            MINI-APPS
+            DEMO APPS
           </h1>
         </div>
         <div className='relative group'>
@@ -52,8 +47,8 @@ export default function Home() {
           <i>Typescript</i> and <i>Tailwind</i>.
         </p>{' '}
         <p className='text-lg mt-4'>
-          Each page has a <b>please explain</b> button at the bottom if you want
-          to know what's happening behind the scenes. The code is on Github{' '}
+          Each page has a button at the bottom that explains what's happening
+          behind the scenes. The full code is on Github{' '}
           <b className='text-red-500'>TODO</b>.
         </p>
       </div>
