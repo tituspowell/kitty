@@ -19,9 +19,10 @@ const BASE_URL = `https://api.themoviedb.org/3/search/movie?api_key=${process.en
 const MIN_VOTE_COUNT = 10;
 
 const MoviesContainer = () => {
-  const [query, setQuery] = useState<string>('cat');
+  const [query, setQuery] = useState<string>('');
   const [movies, setMovies] = useState<Movie[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [searchPerformed, setSearchPerformed] = useState<boolean>(false);
 
   // Fetch new movie data from the TMDB API whenever we have a new query
   useEffect(() => {
@@ -30,8 +31,13 @@ const MoviesContainer = () => {
 
   // The async fetch
   const fetchMoviesData = async () => {
+    if (!query) {
+      return;
+    }
+
     const url = `${BASE_URL}&query=${query}`;
     setLoading(true);
+    setSearchPerformed(true);
 
     try {
       const response = await fetch(url);
@@ -69,18 +75,24 @@ const MoviesContainer = () => {
     );
   }
 
+  const resultsObtained: boolean = movies.length > 0;
+
   // Finished fetching the movie data so we can now display properly
   return (
     <section>
       <SearchInputForm setQuery={setQuery} defaultInput={query} />
-      {movies.length > 0 ? (
-        <MovieSearchResults movies={movies} />
+      {resultsObtained ? (
+        <div>
+          <MovieSearchResults movies={movies} />
+          <TMDBAttribution />
+        </div>
       ) : (
-        <h2 className={`${theme.text.highContrast} text-2xl my-12`}>
-          Meep! No results found!
+        <h2 className={`${theme.text.highContrast} text-xl my-12 px-4`}>
+          {searchPerformed
+            ? 'Meep! No results found!'
+            : 'Please enter a search term above, e.g. dog'}
         </h2>
       )}
-      <TMDBAttribution />
     </section>
   );
 };
