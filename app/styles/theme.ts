@@ -13,7 +13,7 @@ export const theme = {
     highContrast: 'bg-primary-50 dark:bg-primary-950',
     lowContrast: 'bg-primary-100 dark:bg-primary-900',
   },
-  card: 'text-primary-950 dark:text-primary-50 bg-primary-50 dark:bg-primary-950',
+  card: 'text-primary-950 dark:text-primary-50 bg-primary-50 dark:bg-primary-975',
   link: {
     currentPageSoInactiveLink: 'text-primary-950 dark:text-primary-600',
     activeLink:

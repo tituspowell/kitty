@@ -19,11 +19,12 @@ const config: Config = {
           500: '#f59e0b', // amber-500
           600: '#d97706', // amber-600
           700: '#b45309', // amber-700
-          750: '#a34a0b', // amber-750
+          750: '#a34a0b', // amber-750 if it existed
           800: '#92400e', // amber-800
-          850: '#853B0F', // amber-850
+          850: '#853B0F', // amber-850 if it existed
           900: '#78350f', // amber-900
           950: '#451a03', // amber-950
+          975: '#230d02', // amber-975 if it existed
         },
         secondary: {
           light: '#f1f5f9', // slate-100
