@@ -9,7 +9,7 @@ export function ThemeSwitch() {
   return (
     <button
       onClick={toggleTheme}
-      className='p-2 rounded-full'
+      className='p-2 rounded-full ml-2'
       aria-label='Toggle theme'
     >
       {isDarkMode ? (
