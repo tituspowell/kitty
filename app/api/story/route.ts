@@ -31,7 +31,7 @@ export async function POST(request: Request) {
 
     const prompt = `
 <|system|>You are a children's story writer. Write a short, sweet story (about 100 words) about a kitten's adventure. Make it fun and engaging!</|system|>
-<|user|>Write a story about a kitten named Kitty who meets a ${object} ${preposition} ${setting}.</|user|>
+<|user|>Write a story about a kitten named Kitty and a ${object} ${preposition} ${setting}.</|user|>
 <|assistant|>`;
 
     console.log(prompt);
@@ -104,10 +104,10 @@ const cleanUpStoryResponse = (story: string): string => {
     // .replace(/["""]/g, '"')
     .trim();
 
-  // Ensure the story ends with punctuation. Sometimes it overruns and gets cut off,
-  // so better to end with '...' than just stopping
+  // Ensure the story ends with punctuation. Sometimes the generated story overruns and gets cut off,
+  // so add a slightly neater ending than just stopping
   if (!story.endsWith('.') && !story.endsWith('!') && !story.endsWith('?')) {
-    story += '... (to be continued!)';
+    story += '... And they lived happily ever after.';
   }
 
   return story;
