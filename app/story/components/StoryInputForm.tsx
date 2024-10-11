@@ -13,6 +13,10 @@ const StoryInputForm = ({ isGenerating, generateStory }: StoryInputProps) => {
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     generateStory({ object: object, setting: setting });
+
+    // Reset the input fields
+    setObject('');
+    setSetting('');
   };
 
   const canGenerate: boolean = !isGenerating && object !== '' && setting !== '';
