@@ -10,7 +10,8 @@ export const theme = {
     cardSecondary: 'text-primary-700 dark:text-primary-50',
   },
   bg: {
-    highContrast: 'text-primary-50 dark:text-primary-950',
+    highContrast: 'bg-primary-50 dark:bg-primary-950',
+    lowContrast: 'bg-primary-100 dark:bg-primary-900',
   },
   card: 'text-primary-950 dark:text-primary-50 bg-primary-50 dark:bg-primary-950',
   link: {

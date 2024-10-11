@@ -1,6 +1,7 @@
 export interface StoryRequest {
   object: string;
   setting: string;
+  preposition: string;
 }
 
 export interface StoryResponse {
@@ -20,3 +21,7 @@ export interface StoryInputProps {
   isGenerating: boolean;
   generateStory: (storyInputs: StoryRequest) => void;
 }
+
+export type DropdownInputProps = {
+  prepositionChanged: (prepositionSelected: string) => void;
+};

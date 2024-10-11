@@ -5,18 +5,28 @@
 import { useState } from 'react';
 import { StoryInputProps } from '../types';
 import { theme } from '@/app/styles/theme';
+import DropdownInput from './DropdownInput';
 
 const StoryInputForm = ({ isGenerating, generateStory }: StoryInputProps) => {
-  const [object, setObject] = useState('');
-  const [setting, setSetting] = useState('');
+  const [object, setObject] = useState<string>('');
+  const [setting, setSetting] = useState<string>('');
+  const [preposition, setPreposition] = useState<string>('');
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    generateStory({ object: object, setting: setting });
+    generateStory({
+      object: object,
+      setting: setting,
+      preposition: preposition,
+    });
 
     // Reset the input fields
     setObject('');
     setSetting('');
+  };
+
+  const prepositionChanged = (prepositionSelected: string) => {
+    setPreposition(prepositionSelected);
   };
 
   const canGenerate: boolean = !isGenerating && object !== '' && setting !== '';
@@ -43,10 +53,8 @@ const StoryInputForm = ({ isGenerating, generateStory }: StoryInputProps) => {
             }}
             className={`px-4 pt-1 pb-2 w-full rounded-l border ${theme.border} text-black text-xl bg-primary-50 focus:outline-none focus:ring-0`}
           />
-          {/* in a... */}
-          <h4 className='text-xl mb-1 w-1/4 p-1 pl-5 md:place-self-center'>
-            in a...
-          </h4>
+          {/* Input for the 'preposition' part of the prompt, e.g. 'in a' */}
+          <DropdownInput prepositionChanged={prepositionChanged} />
           {/* Input for the 'setting' part of the prompt */}
           <input
             type='text'

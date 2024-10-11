@@ -25,7 +25,6 @@ const StoryContainer = () => {
       }
 
       setStoryResult(data.story || 'Once upon a time...');
-      console.log(data.story);
     } catch (error) {
       console.error('Error generating story:', error);
       setStoryResult(

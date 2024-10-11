@@ -9,7 +9,7 @@ import { NextResponse } from 'next/server';
 export async function POST(request: Request) {
   try {
     // Validate request body
-    const { object, setting }: StoryRequest = await request.json();
+    const { object, setting, preposition }: StoryRequest = await request.json();
 
     if (!object || !setting) {
       const errorResponse: StoryErrorResponse = {
@@ -31,10 +31,10 @@ export async function POST(request: Request) {
 
     const prompt = `
 <|system|>You are a children's story writer. Write a short, sweet story (about 100 words) about a kitten's adventure. Make it fun and engaging!</|system|>
-
-<|user|>Write a story about a kitten named Kitty who meets a ${object} while ${setting}.</|user|>
-
+<|user|>Write a story about a kitten named Kitty who meets a ${object} ${preposition} ${setting}.</|user|>
 <|assistant|>`;
+
+    console.log(prompt);
 
     const response = await fetch(
       'https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1',

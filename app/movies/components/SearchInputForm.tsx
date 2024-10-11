@@ -14,7 +14,6 @@ const SearchInputForm = ({ defaultInput, setQuery }: SearchComponentProps) => {
 
   const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(`Searching for: ${input}`);
 
     // Use Toastify for the error alert
     if (!input) {

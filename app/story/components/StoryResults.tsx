@@ -2,7 +2,7 @@ import { theme } from '@/app/styles/theme';
 
 const StoryResults = ({ story }: { story: string }) => {
   return (
-    <section className='max-w-[900px] mx-auto m-4 mb-8'>
+    <section className='max-w-[900px] mx-auto m-4 mb-8 md:mb-12'>
       <div
         className={`card ${theme.card} shadow-xl justify-center align-top p-4 m-4`}
       >
