@@ -43,7 +43,7 @@ export default function Home() {
       </section>
       {/* The card with info below */}
       <div
-        className={`card ${theme.card} shadow-xl justify-center align-top p-4 m-4 mt-8`}
+        className={`card ${theme.card} shadow-xl justify-center align-top p-4 m-4 mt-4`}
       >
         <h2 className='text-2xl font-bold mb-4'>Welcome!</h2>
         <p className='text-lg'>
@@ -52,8 +52,9 @@ export default function Home() {
           <i>Typescript</i> and <i>Tailwind</i>.
         </p>{' '}
         <p className='text-lg mt-4'>
-          Each page has a <b>please explain</b> button if you want to know
-          what's happening behind the scenes.
+          Each page has a <b>please explain</b> button at the bottom if you want
+          to know what's happening behind the scenes. The code is on Github{' '}
+          <b className='text-red-500'>TODO</b>.
         </p>
       </div>
     </div>
