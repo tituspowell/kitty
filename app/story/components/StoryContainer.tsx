@@ -4,6 +4,7 @@ import { useState } from 'react';
 import StoryInputForm from './StoryInputForm';
 import StoryResults from './StoryResults';
 import { StoryRequest } from '../types';
+import StoryLoading from '@/app/components/StoryLoading';
 
 const StoryContainer = () => {
   const [storyResult, setStoryResult] = useState<string>('');
@@ -35,13 +36,16 @@ const StoryContainer = () => {
     }
   };
 
+  const resultsToShow: boolean = !storyLoading && storyResult !== '';
+
   return (
     <section>
-      {storyResult && !storyLoading && <StoryResults story={storyResult} />}
+      {resultsToShow && <StoryResults story={storyResult} />}
       <StoryInputForm
         isGenerating={storyLoading}
         generateStory={generateStory}
       />
+      {storyLoading && <StoryLoading />}
     </section>
   );
 };

@@ -107,7 +107,7 @@ const cleanUpStoryResponse = (story: string): string => {
   // Ensure the story ends with punctuation. Sometimes it overruns and gets cut off,
   // so better to end with '...' than just stopping
   if (!story.endsWith('.') && !story.endsWith('!') && !story.endsWith('?')) {
-    story += '...';
+    story += '... (to be continued!)';
   }
 
   return story;

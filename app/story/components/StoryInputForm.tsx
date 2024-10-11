@@ -20,7 +20,7 @@ const StoryInputForm = ({ isGenerating, generateStory }: StoryInputProps) => {
   // Responsive layout differences kick in at medium ('md') screen size and above. Smaller than that,
   // the inputs and Generate Story button are in a single column. Larger than that they are in a row.
   return (
-    <form className={`p-4 grid grid-cols-1 max-w-[900px] mx-auto`}>
+    <form className={`px-4 grid grid-cols-1 max-w-[900px] mx-auto`}>
       {/* Header */}
       <h4 className='text-xl sm:text-2xl mb-4 md:mb-8'>
         Create a story about a kitten and a...
@@ -62,7 +62,7 @@ const StoryInputForm = ({ isGenerating, generateStory }: StoryInputProps) => {
           }`}
           disabled={!canGenerate}
         >
-          {isGenerating ? 'Creating Story...' : 'Generate Story!'}
+          Generate Story!
         </button>
       </div>
     </form>
