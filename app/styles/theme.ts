@@ -14,6 +14,8 @@ export const theme = {
     lowContrast: 'bg-primary-100 dark:bg-primary-900',
   },
   card: 'text-primary-950 dark:text-primary-50 bg-primary-50 dark:bg-primary-975',
+  shadow:
+    'shadow-xl dark:shadow-[0_20px_25px_-5px_rgba(255,255,255,0.1),_0_8px_10px_-6px_rgba(255,255,255,0.1)]',
   link: {
     currentPageSoInactiveLink: 'text-primary-950 dark:text-primary-600',
     activeLink:

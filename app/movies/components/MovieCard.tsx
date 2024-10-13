@@ -31,7 +31,7 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
 
   return (
     <article
-      className={`card ${theme.card} w-72 shadow-xl justify-center align-top p-4 m-2`}
+      className={`card ${theme.card} ${theme.shadow} w-72 justify-center align-top p-4 m-2`}
     >
       <figure>
         {/* Show the image if there is one */}

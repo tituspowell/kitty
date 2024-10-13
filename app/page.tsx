@@ -38,7 +38,7 @@ export default function Home() {
       </section>
       {/* The card with info below */}
       <div
-        className={`card ${theme.card} shadow-xl justify-center align-top p-4 m-4 mt-4`}
+        className={`card ${theme.card} ${theme.shadow} justify-center align-top p-4 m-4 mt-4`}
       >
         <h2 className='text-2xl font-bold mb-4'>Welcome!</h2>
         <p className='text-lg'>
