@@ -66,7 +66,8 @@ const SingleTask = ({ task }: { task: Task }) => {
           click Edit, through, we show an input field and an Update and a Cancel button instead. */}
         {!isEditing ? (
           <div className='flex my-0.5 h-[36px]'>
-            {/* Normal version, showing the task plus a Delete and an Edit button */}
+            {/* Normal version, showing the task plus a Delete and an Edit button.
+              The task itself is a button because clicking on it toggles its 'completed' status. */}
             <button
               onClick={() => toggleCompleted(task.id)}
               className={`flex-1 text-nowrap overflow-hidden justify-start`}
@@ -103,7 +104,7 @@ const SingleTask = ({ task }: { task: Task }) => {
             >
               Edit
             </button>
-            <div className={`grid px-0.5 ${theme.bg.arrow}`}>
+            <div className={`grid px-0.5 ${theme.bg.arrow} w-5`}>
               {/* Up arrow button to move the task up in the task list, unless already at the top */}
               <button
                 disabled={first}
@@ -127,17 +128,15 @@ const SingleTask = ({ task }: { task: Task }) => {
             </div>
           </div>
         ) : (
-          <div className='flex py-0.5 h-[36px]'>
+          <div className='flex my-0.5 h-[36px]'>
             {/* 'isEditing' version, showing the task as an input plus an Update and a Cancel button */}
-            <div className={`flex flex-1`}>
-              <input
-                className={`flex-1 text-black bg-primary-50 text-lg rounded-l pl-2 focus:outline-none focus:ring-0 focus:border-none`}
-                value={input}
-                onChange={(e) => {
-                  setInput(e.target.value);
-                }}
-              />
-            </div>
+            <input
+              className={`flex-1 min-w-0 text-nowrap overflow-hidden justify-start text-black bg-primary-50 text-lg rounded-l pl-2 focus:outline-none focus:ring-0 focus:border-none`}
+              value={input}
+              onChange={(e) => {
+                setInput(e.target.value);
+              }}
+            />
             {/* Update button */}
             <button
               className={`${theme.button.active} mx-0 w-16`}
@@ -147,13 +146,13 @@ const SingleTask = ({ task }: { task: Task }) => {
             </button>
             {/* Cancel button */}
             <button
-              className={`${theme.button.active} mx-0 w-16`}
+              className={`${theme.button.active} mx-0 w-16 ml-0.5`}
               onClick={() => setIsEditing(false)}
             >
               Cancel
             </button>
             {/* Empty div to maintain alignment; this is where other tasks have the up and down arrows */}
-            <div className={`w-4 ${theme.button.arrowDisabled}`}></div>
+            <div className={`w-5 ${theme.bg.arrow}`}></div>
           </div>
         )}
       </article>
