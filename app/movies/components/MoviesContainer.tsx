@@ -87,10 +87,10 @@ const MoviesContainer = () => {
           <TMDBAttribution />
         </div>
       ) : (
-        <h2 className={`${theme.text.highContrast} text-xl my-12 px-4`}>
-          {searchPerformed
-            ? 'Meep! No results found!'
-            : 'Please enter a search term above, e.g. dog'}
+        <h2
+          className={`${theme.text.highContrast} text-2xl my-12 px-4 text-center`}
+        >
+          {searchPerformed && 'Meep! No results found!'}
         </h2>
       )}
     </section>

@@ -6,6 +6,7 @@ import React, { FormEvent, useState } from 'react';
 import { SearchIconWithClass } from '../../icons';
 import { theme } from '@/app/styles/theme';
 import { SearchComponentProps } from '../types';
+import { section } from 'framer-motion/client';
 
 const SearchInputForm = ({ defaultInput, setQuery }: SearchComponentProps) => {
   const [input, setInput] = useState(defaultInput);
@@ -20,30 +21,32 @@ const SearchInputForm = ({ defaultInput, setQuery }: SearchComponentProps) => {
   };
 
   return (
-    <form
-      className={`flex w-full max-w-[600px] px-4 mx-auto`}
-      onSubmit={handleFormSubmit}
-    >
-      <SearchIconWithClass className='text-xl w-5 h-5 mr-1 my-auto flex-shrink-0' />
-      <input
-        type='text'
-        placeholder='I searches movies here...'
-        value={input}
-        onChange={(e) => {
-          setInput(e.target.value);
-        }}
-        className={`px-4 pt-1 pb-2 flex-1 rounded-l border ${theme.border} text-black text-xl bg-primary-50 focus:outline-none focus:ring-0 overflow-hidden min-w-0`}
-      />
-      <button
-        type='submit'
-        className={`${
-          input ? theme.button.primary : theme.button.disabled
-        } rounded-r mx-0 w-20 px-4 text-lg flex-shrink-0`}
-        disabled={!input}
-      >
-        Search
-      </button>
-    </form>
+    <section className=' w-full max-w-[600px] px-4 mx-auto'>
+      <form className={`flex`} onSubmit={handleFormSubmit}>
+        <SearchIconWithClass className='text-xl w-5 h-5 mr-1 my-auto flex-shrink-0' />
+        <input
+          type='text'
+          placeholder='I searches movies here...'
+          value={input}
+          onChange={(e) => {
+            setInput(e.target.value);
+          }}
+          className={`px-4 pt-1 pb-2 flex-1 rounded-l border ${theme.border} text-black text-xl bg-primary-50 focus:outline-none focus:ring-0 overflow-hidden min-w-0`}
+        />
+        <button
+          type='submit'
+          className={`${
+            input ? theme.button.primary : theme.button.disabled
+          } rounded-r mx-0 w-20 px-4 text-lg flex-shrink-0`}
+          disabled={!input}
+        >
+          Search
+        </button>
+      </form>
+      <h4 className={`mt-2 pl-6 ${theme.text.lowContrast}`}>
+        Please enter a search term above, e.g. dog
+      </h4>
+    </section>
   );
 };
 

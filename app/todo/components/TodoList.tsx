@@ -46,7 +46,9 @@ const TodoList = () => {
           </button>
         ) : (
           tasksExist && (
-            <h4 className={`flex-1 flex rounded-l pl-2 text-gray-500`}>
+            <h4
+              className={`flex-1 flex rounded-l pl-2 ${theme.text.lowContrast}`}
+            >
               Click a task to mark as complete
             </h4>
           )
