@@ -33,7 +33,7 @@ const TaskInputForm = () => {
       <button
         type='submit'
         className={`${
-          input ? theme.button.primary : theme.button.disabled
+          input ? theme.button.active : theme.button.disabled
         } rounded-r mx-0 w-20 px-4 text-lg`}
         disabled={!input}
       >

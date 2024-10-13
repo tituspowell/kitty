@@ -14,7 +14,7 @@ const ExplainPleaseButton = ({ text }: { text: string }) => {
     <section>
       <button
         onClick={openModal}
-        className={`${theme.button.primary} flex mx-auto justify-center items-center text-lg rounded px-2 py-1`}
+        className={`${theme.button.active} flex mx-auto justify-center items-center text-lg rounded px-2 py-1`}
       >
         <PawIconWithClass className='mr-2' />
         <h4>Explain please!</h4>

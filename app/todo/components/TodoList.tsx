@@ -39,7 +39,7 @@ const TodoList = () => {
       <div className='flex my-2'>
         {anyCompleted ? (
           <button
-            className={`${theme.button.primary} px-4 pt-1 pb-2`}
+            className={`${theme.button.active} px-4 pt-1 pb-2`}
             onClick={deleteAllCompleted}
           >
             Delete all completed
