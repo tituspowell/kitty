@@ -48,6 +48,12 @@ const SingleTask = ({ task }: { task: Task }) => {
     setIsEditing(false);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleUpdate();
+    }
+  };
+
   // It's useful for this SingleTask component to know if it is first or last in the list
   // so that it can disable the 'move up' or 'move down' functionality if appropriate
   const first: boolean = isFirstTask(id);
@@ -133,6 +139,7 @@ const SingleTask = ({ task }: { task: Task }) => {
             <input
               className={`flex-1 min-w-0 text-nowrap overflow-hidden justify-start text-black bg-primary-50 text-lg rounded-l pl-2 focus:outline-none focus:ring-0 focus:border-none`}
               value={input}
+              onKeyDown={handleKeyDown}
               onChange={(e) => {
                 setInput(e.target.value);
               }}
