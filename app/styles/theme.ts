@@ -12,6 +12,8 @@ export const theme = {
   bg: {
     highContrast: 'bg-primary-50 dark:bg-primary-950',
     lowContrast: 'bg-primary-100 dark:bg-primary-900',
+    arrow:
+      'bg-primary-50 dark:bg-primary-100 hover:bg-primary-500 dark:hover:bg-primary-500',
   },
   card: 'text-primary-950 dark:text-primary-50 bg-primary-50 dark:bg-primary-975',
   shadow:

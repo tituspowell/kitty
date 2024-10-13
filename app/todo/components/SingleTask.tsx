@@ -103,7 +103,7 @@ const SingleTask = ({ task }: { task: Task }) => {
             >
               Edit
             </button>
-            <div className='grid'>
+            <div className={`grid px-0.5 ${theme.bg.arrow}`}>
               {/* Up arrow button to move the task up in the task list, unless already at the top */}
               <button
                 disabled={first}
