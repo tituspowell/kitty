@@ -9,10 +9,10 @@ export const todoAppExplanation: string[] = [
 
 export const moviesAppExplanation: string[] = [
   `This Movie Search React app demonstrates data fetching via an external API, in this case the TMDB movie database API.`,
-  `The user enters a search term and that is used to fetch the relevant movie data from TMDB. The results are then displayed in a grid.`,
-  `The layout is responsive, as is the rest of the website, so that it adapts to whatever screen size the user is using. If you are familiar with browser dev tools, you can verify this by changing the display size.`,
+  `The user enters a search term that is used to fetch the relevant movie data from TMDB. The results are then displayed in a dynamically-populated grid.`,
+  `The layout is responsive, as is the rest of the website, so that it adapts to whatever screen size the user is using. If you are familiar with browser dev tools, you can see this by changing the display size.`,
   `Since the data fetching is asynchronous, a loading animation is shown until the results are returned.`,
-  `Next.js is a full-stack framework and where possible server components are used to allow server side rendering and then the interactive parts are hydrated client-side. This is faster, so a better user experience and SEO.`,
+  `Next.js is a full-stack framework. Where possible, server components are used to allow server side rendering; the interactive parts are then hydrated client-side. This is faster, so is a better user experience and SEO.`,
 ];
 
 export const storyAppExplanation: string[] = [
