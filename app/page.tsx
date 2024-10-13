@@ -43,8 +43,8 @@ export default function Home() {
         <h2 className='text-2xl font-bold mb-4'>Welcome!</h2>
         <p className='text-lg'>
           This set of three mini-apps are to show my web development skills
-          using <i>React</i>, <i>Next.js</i>, <i>Typescript</i> and{' '}
-          <i>Tailwind</i>, with a little help from Kitty.
+          using <b>React</b>, <b>Next.js</b>, <b>Typescript</b> and{' '}
+          <b>Tailwind</b>, with a little help from Kitty.
         </p>{' '}
         <p className='text-lg mt-4'>
           Each page has a button at the bottom that explains what's happening
