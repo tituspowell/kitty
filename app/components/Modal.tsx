@@ -24,7 +24,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
         onClick={onClose}
       ></div>
       <div
-        className={`${theme.text.highContrast} ${theme.bg.highContrast} relative z-50 p-6 rounded-lg shadow-lg`}
+        className={`${theme.text.highContrast} ${theme.bg.highContrast} ${theme.shadow} relative z-50 p-6 rounded-lg`}
       >
         {children}
         <button
@@ -36,6 +36,20 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
       </div>
     </div>,
     document.body
+  );
+};
+
+export const ModalParagraphs = ({ paragraphs }: { paragraphs: string[] }) => {
+  return (
+    <div>
+      {paragraphs.map((paragraph, index) => {
+        return (
+          <p key={index} className='mt-2 md:text-lg'>
+            {paragraph}
+          </p>
+        );
+      })}
+    </div>
   );
 };
 

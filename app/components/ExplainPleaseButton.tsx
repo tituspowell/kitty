@@ -3,11 +3,11 @@
 
 'use client';
 
-import { Modal, useModal } from './Modal';
+import { Modal, useModal, ModalParagraphs } from './Modal';
 import { PawIconWithClass } from '../icons';
 import { theme } from '../styles/theme';
 
-const ExplainPleaseButton = ({ text }: { text: string }) => {
+const ExplainPleaseButton = ({ text }: { text: string[] }) => {
   const { isOpen, openModal, closeModal } = useModal();
 
   return (
@@ -20,8 +20,7 @@ const ExplainPleaseButton = ({ text }: { text: string }) => {
         <h4>Explain please!</h4>
       </button>
       <Modal isOpen={isOpen} onClose={closeModal}>
-        <h2 className='text-xl pb-2'>Kitty explains...</h2>
-        <p>{text}</p>
+        <ModalParagraphs paragraphs={text}></ModalParagraphs>
       </Modal>
     </section>
   );
