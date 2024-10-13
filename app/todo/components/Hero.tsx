@@ -19,17 +19,11 @@ const Hero = () => {
         >
           Kitty's
         </h1>
-        <h1
-          className={`${theme.text.highContrast} text-2xl sm:text-3xl md:text-4xl mt-4`}
+        <h2
+          className={`${theme.text.highContrast} text-3xl md:text-4xl mt-6 text-center`}
         >
-          TO <span className={`${theme.strikethrough} line-through`}>DO</span>{' '}
-          LIST
-        </h1>
-        <h1
-          className={`${theme.text.lowContrast} text-2xl italic mt-[-0.75rem] pr-4`}
-        >
-          mew
-        </h1>
+          TASK LIST
+        </h2>
       </div>
       <div className='relative group'>
         {/* When the user hovers over the image, a cute speech bubble appears saying 'meeep!'. This is

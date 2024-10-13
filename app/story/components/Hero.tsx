@@ -15,16 +15,11 @@ const Hero = () => {
         >
           Kitty's
         </h1>
-        <h1
-          className={`${theme.text.highContrast} text-2xl sm:text-3xl md:text-4xl mt-4`}
+        <h2
+          className={`${theme.text.highContrast} text-3xl md:text-4xl mt-6 text-center`}
         >
-          A.I. STORY
-        </h1>
-        <h1
-          className={`${theme.text.highContrast} text-2xl sm:text-3xl md:text-4xl`}
-        >
-          GENERATOR
-        </h1>
+          A.I. STORY GENERATOR
+        </h2>
       </div>
       <div className='relative group'>
         {/* When the user hovers over the image, a cute speech bubble appears saying 'meeep!'. This is
