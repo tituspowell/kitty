@@ -27,7 +27,11 @@ const TodoList = () => {
       {/* The list of tasks, wrapped in some animation functionality from the
         Framer Motion library. This has a nice smooth animation effect when
         moving a task up or down in the list, and also when adding or deleting */}
-      <motion.div layout transition={{ type: 'spring', stiffness: 300 }}>
+      <motion.div
+        layout
+        transition={{ type: 'spring', stiffness: 300 }}
+        className='border dark:border-none ${theme.border}'
+      >
         <AnimatePresence>
           {tasks.map((task) => {
             return <SingleTask key={task.id} task={task} />;

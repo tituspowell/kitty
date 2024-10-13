@@ -28,7 +28,7 @@ const DropdownInput: React.FC<DropdownInputProps> = ({
       <select
         value={selectedOption}
         onChange={handleChange}
-        className={`text-primary-950 bg-primary-100 text-xl block appearance-none w-full border border-gray-300 hover:border-gray-400 px-4 py-2 pb-3 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline`}
+        className={`text-primary-950 bg-primary-50 text-xl block appearance-none w-full border ${theme.border} px-4 py-2 pb-3 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline`}
       >
         {options.map((option) => (
           <option key={option.value} value={option.value}>

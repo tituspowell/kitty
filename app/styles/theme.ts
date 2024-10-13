@@ -26,7 +26,7 @@ export const theme = {
   border: 'border-primary-950 dark:border-primary-600',
   icon: 'text-primary-700 hover:text-primary-500 dark:text-primary-100 dark:hover:text-white',
   strikethrough: 'decoration-primary-700 dark:decoration-primary-500',
-  task: 'text-primary-950 hover:text-primary-700 bg-primary-50 dark:bg-primary-100',
+  task: 'text-primary-950 hover:text-primary-700 bg-primary-100',
   button: {
     active:
       'bg-primary-900 hover:bg-primary-500 dark:bg-primary-850 dark:hover:bg-primary-500 text-primary-50',

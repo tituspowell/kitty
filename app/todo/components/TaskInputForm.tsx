@@ -28,7 +28,7 @@ const TaskInputForm = () => {
         onChange={(e) => {
           setInput(e.target.value);
         }}
-        className={`px-2 py-1 flex-1 rounded-l border ${theme.border} text-black text-xl bg-primary-50 focus:outline-none focus:ring-0`}
+        className={`px-2 py-1 flex-1 rounded-l border ${theme.border} text-primary-950 text-xl bg-primary-50 focus:outline-none focus:ring-0`}
       />
       <button
         type='submit'

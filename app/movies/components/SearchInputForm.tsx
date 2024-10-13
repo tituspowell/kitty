@@ -31,7 +31,7 @@ const SearchInputForm = ({ defaultInput, setQuery }: SearchComponentProps) => {
           onChange={(e) => {
             setInput(e.target.value);
           }}
-          className={`px-4 pt-1 pb-2 w-full rounded-l border ${theme.border} text-black text-xl bg-primary-50 focus:outline-none focus:ring-0`}
+          className={`px-4 pt-1 pb-2 w-full rounded-l border ${theme.border} text-primary-950 text-xl bg-primary-50 focus:outline-none focus:ring-0`}
         />
         <button
           type='submit'

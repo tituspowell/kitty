@@ -137,7 +137,7 @@ const SingleTask = ({ task }: { task: Task }) => {
           <div className='flex my-0.5 h-[36px]'>
             {/* 'isEditing' version, showing the task as an input plus an Update and a Cancel button */}
             <input
-              className={`flex-1 min-w-0 text-nowrap overflow-hidden justify-start text-black bg-primary-50 text-lg rounded-l pl-2 focus:outline-none focus:ring-0 focus:border-none`}
+              className={`flex-1 min-w-0 text-nowrap overflow-hidden justify-start text-primary-950 bg-primary-50 text-lg rounded-l pl-2 focus:outline-none focus:ring-0 focus:border ${theme.border}`}
               value={input}
               onKeyDown={handleKeyDown}
               onChange={(e) => {
