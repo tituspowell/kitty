@@ -14,7 +14,7 @@ export default function Home() {
             Titus Powell
           </h1>
           <h2
-            className={`${theme.text.highContrast} text-2xl sm:text-3xl md:text-4xl mt-4`}
+            className={`${theme.text.highContrast} text-2xl sm:text-3xl md:text-4xl mt-5 md:mt-8`}
           >
             WEB DEV
           </h2>
