@@ -46,8 +46,8 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
           />
         )}
       </figure>
-      {/* The movie title */}
-      <div className='card-body grid align-top mt-2'>
+      <div className='card-body mt-2'>
+        {/* The movie title */}
         <h2 className={`${theme.text.highContrast} text-lg font-bold`}>
           {title}
         </h2>
