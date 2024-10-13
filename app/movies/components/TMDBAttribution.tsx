@@ -5,7 +5,7 @@ import TMDBAttributionImage from '../images/tmdb.svg';
 
 const TMDBAttribution = () => {
   return (
-    <div className='flex gap-2 mt-4 mb-4 align-top'>
+    <div className='flex gap-2 m-4 align-top'>
       <p className='pb-1'>Search results provided by</p>
       <Image
         src={TMDBAttributionImage}
