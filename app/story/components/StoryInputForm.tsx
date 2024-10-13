@@ -69,7 +69,7 @@ const StoryInputForm = ({ isGenerating, generateStory }: StoryInputProps) => {
         {/* Generate Story button, only shown if we have valid inputs */}
         <button
           onClick={handleClick}
-          className={`rounded mx-auto w-40 mt-4 md:mt-0 px-4 py-3 md:py-2 text-lg leading-tight mb-4 md:ml-4 ${
+          className={`rounded mx-auto w-40 mt-2 md:mt-0 px-4 py-3 md:py-2 text-lg leading-tight mb-4 md:ml-4 ${
             canGenerate ? `${theme.button.primary}` : `${theme.button.disabled}`
           }`}
           disabled={!canGenerate}

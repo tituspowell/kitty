@@ -19,7 +19,7 @@ const TodoList = () => {
   const labelText = tasksExist ? 'TO DO:' : 'All done! Meeep!';
 
   return (
-    <section className='p-4'>
+    <section className='px-4 md:py-4'>
       {/* The label text */}
       <h2 className={`${theme.text.highContrast} text-2xl my-2`}>
         {labelText}
