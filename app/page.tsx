@@ -42,7 +42,7 @@ export default function Home() {
       >
         <h2 className='text-2xl font-bold mb-4'>Welcome!</h2>
         <p className='text-lg'>
-          This set of three mini-apps is to showcase my web development skills
+          This set of three mini-apps are to show my web development skills
           using <i>React</i>, <i>Next.js</i>, <i>Typescript</i> and{' '}
           <i>Tailwind</i>, with a little help from Kitty.
         </p>{' '}
