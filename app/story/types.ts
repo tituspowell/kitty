@@ -18,7 +18,6 @@ export interface HuggingFaceResponse {
 }
 
 export interface StoryInputProps {
-  isGenerating: boolean;
   generateStory: (storyInputs: StoryRequest) => void;
 }
 

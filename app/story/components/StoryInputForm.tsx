@@ -7,7 +7,7 @@ import { StoryInputProps } from '../types';
 import { theme } from '@/app/styles/theme';
 import DropdownInput from './DropdownInput';
 
-const StoryInputForm = ({ isGenerating, generateStory }: StoryInputProps) => {
+const StoryInputForm = ({ generateStory }: StoryInputProps) => {
   const [object, setObject] = useState<string>('');
   const [setting, setSetting] = useState<string>('');
   const [preposition, setPreposition] = useState<string>('');
@@ -29,7 +29,7 @@ const StoryInputForm = ({ isGenerating, generateStory }: StoryInputProps) => {
     setPreposition(prepositionSelected);
   };
 
-  const canGenerate: boolean = !isGenerating && object !== '' && setting !== '';
+  const canGenerate: boolean = object !== '' && setting !== '';
 
   // Responsive layout differences kick in at medium ('md') screen size and above. Smaller than that,
   // the inputs and Generate Story button are in a single column. Larger than that they are in a row.

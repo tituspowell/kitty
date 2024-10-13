@@ -40,11 +40,11 @@ const StoryContainer = () => {
   return (
     <section className='flex-grow'>
       {resultsToShow && <StoryResults story={storyResult} />}
-      <StoryInputForm
-        isGenerating={storyLoading}
-        generateStory={generateStory}
-      />
-      {storyLoading && <StoryLoading />}
+      {storyLoading ? (
+        <StoryLoading />
+      ) : (
+        <StoryInputForm generateStory={generateStory} />
+      )}
     </section>
   );
 };
