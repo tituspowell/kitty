@@ -21,7 +21,7 @@ export default function Home() {
           <h1
             className={`${theme.text.highContrast} text-2xl sm:text-3xl md:text-4xl`}
           >
-            DEMO APPS
+            PORTFOLIO
           </h1>
         </div>
         <div className='relative group'>
@@ -42,14 +42,14 @@ export default function Home() {
       >
         <h2 className='text-2xl font-bold mb-4'>Welcome!</h2>
         <p className='text-lg'>
-          This set of three mini-apps is to showcase Titus Powell's web
-          development skills using <i>React</i>, <i>Next.js</i>,{' '}
-          <i>Typescript</i> and <i>Tailwind</i>.
+          This set of three mini-apps is to show Titus Powell's web development
+          skills using <i>React</i>, <i>Next.js</i>, <i>Typescript</i> and{' '}
+          <i>Tailwind</i>, with a little help from Kitty.
         </p>{' '}
         <p className='text-lg mt-4'>
           Each page has a button at the bottom that explains what's happening
-          behind the scenes. The full code is on Github{' '}
-          <b className='text-red-500'>TODO</b>.
+          behind the scenes. The full code is on{' '}
+          <b className='text-red-500'>GITHUB</b>.
         </p>
       </div>
     </div>
