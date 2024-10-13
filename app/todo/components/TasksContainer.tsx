@@ -21,7 +21,7 @@ const TasksContainer = () => {
 
   // Client-side hydration and we have access to localStorage, so can finally show the task list
   return (
-    <section className='mx-auto'>
+    <section className='mx-auto flex-grow'>
       <TaskInputForm />
       <TodoList />
     </section>

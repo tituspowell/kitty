@@ -79,7 +79,7 @@ const MoviesContainer = () => {
 
   // Finished fetching the movie data so we can now display properly
   return (
-    <section>
+    <section className='flex-grow'>
       <SearchInputForm setQuery={setQuery} defaultInput={query} />
       {resultsObtained ? (
         <div>

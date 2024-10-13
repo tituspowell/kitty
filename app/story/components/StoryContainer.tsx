@@ -38,7 +38,7 @@ const StoryContainer = () => {
   const resultsToShow: boolean = !storyLoading && storyResult !== '';
 
   return (
-    <section>
+    <section className='flex-grow'>
       {resultsToShow && <StoryResults story={storyResult} />}
       <StoryInputForm
         isGenerating={storyLoading}

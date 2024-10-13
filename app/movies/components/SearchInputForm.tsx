@@ -22,7 +22,7 @@ const SearchInputForm = ({ defaultInput, setQuery }: SearchComponentProps) => {
 
   return (
     <section className=' w-full max-w-[600px] px-4 mx-auto'>
-      <form className={`flex`} onSubmit={handleFormSubmit}>
+      <form className={'flex'} onSubmit={handleFormSubmit}>
         <SearchIconWithClass className='text-xl w-5 h-5 mr-1 my-auto flex-shrink-0' />
         <input
           type='text'
@@ -31,7 +31,7 @@ const SearchInputForm = ({ defaultInput, setQuery }: SearchComponentProps) => {
           onChange={(e) => {
             setInput(e.target.value);
           }}
-          className={`px-4 pt-1 pb-2 flex-1 rounded-l border ${theme.border} text-black text-xl bg-primary-50 focus:outline-none focus:ring-0 overflow-hidden min-w-0`}
+          className={`px-4 pt-1 pb-2 w-full rounded-l border ${theme.border} text-black text-xl bg-primary-50 focus:outline-none focus:ring-0`}
         />
         <button
           type='submit'
