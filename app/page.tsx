@@ -9,20 +9,20 @@ export default function Home() {
         {/* The title part */}
         <div className='grid grid-cols-1 align-top justify-items-center h-[100px]'>
           <h1
-            className={`${theme.text.lowContrast} text-6xl text-primary-500 italic`}
+            className={`${theme.text.lowContrast} text-5xl md:text-6xl text-primary-500 italic text-center leading-10 md:leading-[50px]`}
           >
-            Kitty's
+            Titus Powell
           </h1>
-          <h1
+          <h2
             className={`${theme.text.highContrast} text-2xl sm:text-3xl md:text-4xl mt-4`}
           >
             WEB DEV
-          </h1>
-          <h1
+          </h2>
+          <h2
             className={`${theme.text.highContrast} text-2xl sm:text-3xl md:text-4xl`}
           >
             PORTFOLIO
-          </h1>
+          </h2>
         </div>
         <div className='relative group'>
           {/* The image */}
@@ -42,8 +42,8 @@ export default function Home() {
       >
         <h2 className='text-2xl font-bold mb-4'>Welcome!</h2>
         <p className='text-lg'>
-          This set of three mini-apps is to show Titus Powell's web development
-          skills using <i>React</i>, <i>Next.js</i>, <i>Typescript</i> and{' '}
+          This set of three mini-apps is to showcase my web development skills
+          using <i>React</i>, <i>Next.js</i>, <i>Typescript</i> and{' '}
           <i>Tailwind</i>, with a little help from Kitty.
         </p>{' '}
         <p className='text-lg mt-4'>
