@@ -2,8 +2,6 @@ import Hero from './components/Hero';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import MoviesContainer from './components/MoviesContainer';
-import ExplainPleaseButton from '../components/ExplainPleaseButton';
-import { moviesAppExplanation } from '../explanationTexts';
 
 export default function MoviesPage() {
   return (
@@ -11,7 +9,6 @@ export default function MoviesPage() {
       <ToastContainer />
       <Hero />
       <MoviesContainer />
-      <ExplainPleaseButton text={moviesAppExplanation} />
     </div>
   );
 }

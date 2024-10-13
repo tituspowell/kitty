@@ -30,12 +30,14 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider>
           {/* At the moment the theme context provider is only used in the ThemeSwitch component in the navbar, so we don't need to wrap the whole app like this */}
-          <Navbar />
-          {children}
+          <div className='flex flex-col min-h-screen'>
+            <Navbar />
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>

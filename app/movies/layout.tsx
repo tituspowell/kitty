@@ -1,8 +1,7 @@
 import Footer from '../components/Footer';
-import { TodoProvider } from '../contexts/TodoContext';
-import { todoAppExplanation } from '../explanationTexts';
+import { moviesAppExplanation } from '../explanationTexts';
 
-export default function TodoLayout({
+export default function MoviesLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -14,11 +13,9 @@ export default function TodoLayout({
   // the home page shouldn't have it. We want everything but the footer to expand here too, hence
   // another flex wrapping child elements marked with flex-grow.
   return (
-    <TodoProvider>
-      <section className='flex-grow flex flex-col'>
-        <div className='flex-grow'>{children}</div>
-        <Footer modalText={todoAppExplanation} />
-      </section>
-    </TodoProvider>
+    <section className='flex-grow flex flex-col'>
+      <div className='flex-grow'>{children}</div>
+      <Footer modalText={moviesAppExplanation} />
+    </section>
   );
 }
