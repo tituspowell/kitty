@@ -3,7 +3,7 @@
 
 'use client';
 
-import InputForm from './InputForm';
+import TaskInputForm from './TaskInputForm';
 import TodoList from './TodoList';
 import { useTodo } from '@/app/contexts/TodoContext';
 
@@ -22,7 +22,7 @@ const TasksContainer = () => {
   // Client-side hydration and we have access to localStorage, so can finally show the task list
   return (
     <section className='mx-auto'>
-      <InputForm />
+      <TaskInputForm />
       <TodoList />
     </section>
   );

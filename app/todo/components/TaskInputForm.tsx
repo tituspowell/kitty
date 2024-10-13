@@ -5,9 +5,8 @@
 import { FormEvent, useState } from 'react';
 import { useTodo } from '@/app/contexts/TodoContext';
 import { theme } from '@/app/styles/theme';
-import BouncyButton from '../../components/BouncyButton';
 
-const InputForm = () => {
+const TaskInputForm = () => {
   const [input, setInput] = useState('');
   const { addTask } = useTodo();
 
@@ -31,14 +30,17 @@ const InputForm = () => {
         }}
         className={`px-2 py-1 flex-1 rounded-l border ${theme.border} text-black text-xl bg-primary-50 focus:outline-none focus:ring-0`}
       />
-      <BouncyButton
-        isSubmitType={true}
-        text='Add'
-        className={`${theme.button.primary} rounded-r mx-0 w-20 px-4 text-lg`}
-        onClick={() => {}}
-      />
+      <button
+        type='submit'
+        className={`${
+          input ? theme.button.primary : theme.button.disabled
+        } rounded-r mx-0 w-20 px-4 text-lg`}
+        disabled={!input}
+      >
+        Add
+      </button>
     </form>
   );
 };
 
-export default InputForm;
+export default TaskInputForm;
