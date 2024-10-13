@@ -76,24 +76,22 @@ const SingleTask = ({ task }: { task: Task }) => {
               The task itself is a button because clicking on it toggles its 'completed' status. */}
             <button
               onClick={() => toggleCompleted(task.id)}
-              className={`flex-1 text-nowrap overflow-hidden justify-start`}
+              className={`flex-1 text-nowrap overflow-hidden justify-start grid grid-flow-col place-items-center`}
             >
-              <div className='flex'>
-                {/* Show a tick icon if the task is completed, or a paw icon if not */}
-                {task.completed ? (
-                  <TickIconWithClass className='text-xl my-auto mx-2' />
-                ) : (
-                  <PawIconWithClass className='text-xl my-auto mx-2' />
-                )}
-                {/* Display the task description and put a line through it if completed */}
-                <h4
-                  className={`flex-1 flex text-lg rounded-l pl-2 text-nowrap overflow-hidden ${
-                    task.completed && 'line-through'
-                  }`}
-                >
-                  {text}
-                </h4>
-              </div>
+              {/* Show a tick icon if the task is completed, or a paw icon if not */}
+              {task.completed ? (
+                <TickIconWithClass className='text-xl my-auto mx-2' />
+              ) : (
+                <PawIconWithClass className='text-xl my-auto mx-2' />
+              )}
+              {/* Display the task description and put a line through it if completed */}
+              <h4
+                className={`text-lg pl-2 text-nowrap overflow-hidden ${
+                  task.completed && 'line-through'
+                }`}
+              >
+                {text}
+              </h4>
             </button>
             {/* Delete button
               We don't use the BouncyButton component for the buttons here because they vanish as soon as they are clicked */}
@@ -137,7 +135,7 @@ const SingleTask = ({ task }: { task: Task }) => {
           <div className='flex my-0.5 h-[36px]'>
             {/* 'isEditing' version, showing the task as an input plus an Update and a Cancel button */}
             <input
-              className={`flex-1 min-w-0 text-nowrap overflow-hidden justify-start text-primary-950 bg-primary-50 text-lg rounded-l pl-2 focus:outline-none focus:ring-0 focus:border ${theme.border}`}
+              className={`w-full flex-1 min-w-0 text-nowrap overflow-hidden justify-start text-primary-950 bg-primary-50 text-lg rounded-l pl-2 focus:outline-none focus:ring-0 focus:border ${theme.border}`}
               value={input}
               onKeyDown={handleKeyDown}
               onChange={(e) => {

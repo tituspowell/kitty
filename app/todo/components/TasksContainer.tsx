@@ -13,7 +13,7 @@ const TasksContainer = () => {
   if (isLoading) {
     // Server-side rendering and we don't have access to localStorage, so show a loading spinner
     return (
-      <div className='flex justify-center items-center h-32'>
+      <div className='flex justify-center items-center h-32 flex-grow'>
         <div className='animate-spin rounded-full h-8 w-8 border-b-2 border-primary-700'></div>
       </div>
     );
