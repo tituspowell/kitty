@@ -3,7 +3,6 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
-import { toast } from 'react-toastify';
 import { useTodo } from '@/app/contexts/TodoContext';
 import { theme } from '@/app/styles/theme';
 import BouncyButton from '../../components/BouncyButton';
@@ -14,12 +13,6 @@ const InputForm = () => {
 
   const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    // Use Toastify for the error alert
-    if (!input) {
-      toast.error('Meep! Please enter a task description!');
-      return;
-    }
 
     addTask(input);
 

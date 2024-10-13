@@ -4,7 +4,6 @@
 
 import React, { FormEvent, useState } from 'react';
 import { SearchIconWithClass } from '../../icons';
-import { toast } from 'react-toastify';
 import { theme } from '@/app/styles/theme';
 import BouncyButton from '../../components/BouncyButton';
 import { SearchComponentProps } from '../types';
@@ -14,12 +13,6 @@ const SearchInputForm = ({ defaultInput, setQuery }: SearchComponentProps) => {
 
   const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    // Use Toastify for the error alert
-    if (!input) {
-      toast.error('Meep! Please enter a task description!');
-      return;
-    }
 
     setQuery(input);
 

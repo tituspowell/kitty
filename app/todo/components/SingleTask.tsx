@@ -12,7 +12,6 @@ import {
   UpArrowIconWithClass,
   DownArrowIconWithClass,
 } from '../../icons';
-import { toast } from 'react-toastify';
 import { motion } from 'framer-motion';
 
 const SingleTask = ({ task }: { task: Task }) => {
@@ -45,11 +44,6 @@ const SingleTask = ({ task }: { task: Task }) => {
 
   // The user clicked 'Update' after editing the task description
   const handleUpdate = () => {
-    if (!input) {
-      toast.error('Meep! Please enter a value!');
-      return;
-    }
-
     editTask(id, input);
     setIsEditing(false);
   };
