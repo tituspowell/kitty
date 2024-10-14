@@ -36,7 +36,9 @@ const StoryInputForm = ({ generateStory }: StoryInputProps) => {
   return (
     <form className={`px-4 grid grid-cols-1 max-w-[900px] mx-auto`}>
       {/* Header */}
-      <h4 className='text-xl sm:text-2xl mb-4 md:mb-8'>
+      <h4
+        className={`${theme.text.lowContrast} text-xl sm:text-2xl mb-4 md:mb-8`}
+      >
         Create a story about a kitten and a...
       </h4>
       {/* This div wraps both the inputs and also the Generate Story button, to control the layout  */}
