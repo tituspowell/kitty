@@ -49,7 +49,12 @@ export default function Home() {
         <p className='text-lg mt-4'>
           Each page has a button at the bottom that explains what's happening
           behind the scenes. The full code is on{' '}
-          <b className='text-red-500'>GITHUB</b>.
+          <a href='https://github.com/tituspowell/kitty'>
+            <b>
+              <u>Github</u>
+            </b>
+          </a>
+          .
         </p>
       </div>
     </div>
