@@ -1,5 +1,5 @@
 // Iterates through the last of tasks (accessed via the Context API through the useTodo custom hook),
-// and displays a SingleTask subcomponent for each one
+// and displays a SingleTask subcomponent for each one.
 
 import { theme } from '@/app/styles/theme';
 import SingleTask from './SingleTask';
@@ -10,7 +10,7 @@ const TodoList = () => {
   const { tasks, deleteAllCompleted } = useTodo();
 
   // Note whether any of the tasks are marked as completed because we'll display
-  // a 'delete all completed' button if so
+  // a 'delete all completed' button if so.
   const anyCompleted: boolean =
     tasks.find((task) => task.completed) !== undefined;
 

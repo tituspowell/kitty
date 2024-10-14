@@ -20,7 +20,7 @@ const SingleTask = ({ task }: { task: Task }) => {
   // By default, this single task displays its description plus a Delete and an Edit button. When
   // the user clicks Edit, 'isEditing' mode is enabled, and different elements are rendered instead:
   // an input field for the new description, plus an Update button to submit the change and a Cancel
-  // button to revert back. These local state variables keep track of that
+  // button to revert back. These local state variables keep track of that.
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [input, setInput] = useState<string>('');
 
@@ -42,12 +42,13 @@ const SingleTask = ({ task }: { task: Task }) => {
     setInput(text);
   };
 
-  // The user clicked 'Update' after editing the task description
+  // The user clicked 'Update' after editing the task description to commit the change
   const handleUpdate = () => {
     editTask(id, input);
     setIsEditing(false);
   };
 
+  // Detect an Enter key press when updating a task description
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       handleUpdate();
@@ -69,7 +70,7 @@ const SingleTask = ({ task }: { task: Task }) => {
     >
       <article className={`${theme.task}`}>
         {/* Conditional rendering: normally we show the task plus a Delete and an Edit button. Once they
-          click Edit, through, we show an input field and an Update and a Cancel button instead. */}
+          click Edit, we show an input field and an Update and a Cancel button instead. */}
         {!isEditing ? (
           <div className='flex my-0.5 h-[36px]'>
             {/* Normal version, showing the task plus a Delete and an Edit button.
@@ -93,8 +94,7 @@ const SingleTask = ({ task }: { task: Task }) => {
                 {text}
               </h4>
             </button>
-            {/* Delete button
-              We don't use the BouncyButton component for the buttons here because they vanish as soon as they are clicked */}
+            {/* Delete button */}
             <button
               className={`${theme.button.active} mx-0 w-16`}
               onClick={() => deleteTask(id)}
