@@ -52,7 +52,11 @@ export default function Home() {
         <p className='text-lg mt-4'>
           Each page has a button at the bottom that explains what&apos;s
           happening behind the scenes. The full code is on{' '}
-          <a href='https://github.com/tituspowell/kitty'>
+          <a
+            href='https://github.com/tituspowell/kitty'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             <b>
               <u>Github</u>
             </b>
