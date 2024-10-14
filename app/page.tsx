@@ -1,3 +1,6 @@
+// The home page, which Next.js uses because of its location in the root of 'app'.
+// It is wrapped by the accompanying layout.tsx which holds the Navbar as well.
+
 import Image from 'next/image';
 import kittenImage from './images/KittyHome.png';
 import { theme } from './styles/theme';

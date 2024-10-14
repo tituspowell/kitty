@@ -1,3 +1,6 @@
+// The root layout that Next.js uses, with the body tag. The Navbar component is here,
+// meaning it is shared across all pages of the website.
+
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';

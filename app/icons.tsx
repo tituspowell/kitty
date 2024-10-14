@@ -1,3 +1,7 @@
+// From the React-Icons library. The icons don't have a className prop so Typescript complains
+// (yet still works) if Tailwind classes are assigned directly to the icons, which we often want
+// to do for styling purposes. So instead we wrap them and use these components instead.
+
 import { FiSun } from 'react-icons/fi';
 import { FaMoon } from 'react-icons/fa';
 import { IoIosPaw } from 'react-icons/io';
@@ -7,9 +11,6 @@ import { SlArrowUp, SlArrowDown } from 'react-icons/sl';
 import { IoCloseSharp } from 'react-icons/io5';
 import { ImProfile } from 'react-icons/im';
 import { FaStar } from 'react-icons/fa6';
-
-// The React-Icons icons don't have a className prop so Typescript complains (yet still works)
-// if Tailwind classes are assigned directly to the icons. So instead we wrap them and use these
 
 // Icons used globally
 
