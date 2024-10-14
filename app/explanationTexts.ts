@@ -9,7 +9,7 @@ export const todoAppExplanation: string[] = [
 
 export const moviesAppExplanation: string[] = [
   `This Movie Search React app demonstrates data fetching via an external API, in this case the TMDB movie database API.`,
-  `The user enters a search term that is used to fetch the relevant movie data from TMDB. The results are then displayed in a dynamically-populated grid.`,
+  `The user enters a search term that is used to fetch the relevant movie data from TMDB. The results are then sorted by rating and displayed in a dynamically-populated grid.`,
   `The layout is responsive, as is the rest of the website, so that it adapts to whatever screen size the user is using. If you are familiar with browser dev tools, you can see this by changing the display size.`,
   `Since the data fetching is asynchronous, a loading animation is shown until the results are returned.`,
   `Next.js is a full-stack framework. Where possible, server components are used to allow server side rendering; the interactive parts are then hydrated client-side. This is faster, so is a better user experience and SEO.`,
@@ -18,5 +18,5 @@ export const moviesAppExplanation: string[] = [
 export const storyAppExplanation: string[] = [
   `This Story Generator React app uses Huggingface's API to interact with a pre-trained AI model, in this case 'Mistral-7B-Instruct-v0.1'.`,
   `The code does some simple prompt engineering incorporating user-supplied inputs to generate a prompt requesting a story which it then submits to Huggingface. The response it gets back (the story) is then checked and displayed to the user.`,
-  `Huggingface requires an API access token, and in a purely front-end web app, it would be difficult to guarantee that this stays private. But because Next.js has server components, the API can be accessed from the local environment on the server and it is never sent to the client.`,
+  `Huggingface requires an API access token, and in a purely front-end web app, it would be difficult to guarantee that this stays private. But because Next.js has server components, the API can be accessed from the local environment on the server and is never sent to the client.`,
 ];
