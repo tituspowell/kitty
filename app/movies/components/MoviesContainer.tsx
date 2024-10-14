@@ -6,7 +6,7 @@
 'use client';
 
 import { Movie, MovieResponse } from '../types';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import SearchInputForm from './SearchInputForm';
 import MovieSearchResults from './MovieSearchResults';
 import { theme } from '@/app/styles/theme';
@@ -25,12 +25,7 @@ const MoviesContainer = () => {
   const [searchPerformed, setSearchPerformed] = useState<boolean>(false);
 
   // Fetch new movie data from the TMDB API whenever we have a new query
-  useEffect(() => {
-    fetchMoviesData();
-  }, [query]);
-
-  // The async fetch
-  const fetchMoviesData = async () => {
+  const fetchMoviesData = useCallback(async () => {
     if (!query) {
       return;
     }
@@ -49,7 +44,16 @@ const MoviesContainer = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [query]);
+
+  // Running in build mode generates a warning: "React Hook useEffect has a missing dependency: 'fetchMoviesData'".
+  // So we need to include fetchMoviesData in the dependency array of this useEffect hook. However, simply adding it
+  // to the array will cause an infinite loop, as fetchMoviesData is recreated on every render. The solution is to
+  // wrap the fetchMoviesData function above with useCallback to memoize it. Now it will only trigger a re-fetch
+  // when the query changes, which is the desired behaviour.
+  useEffect(() => {
+    fetchMoviesData();
+  }, [fetchMoviesData]);
 
   const filterAndSortMovies = (results: Movie[]): Movie[] => {
     // TMDB only gives us 20 results, annoyingly, but we still want to filter out the ones without images

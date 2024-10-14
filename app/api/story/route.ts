@@ -104,7 +104,7 @@ export async function POST(request: Request) {
 
 const cleanUpStoryResponse = (story: string): string => {
   // Occasionally the generated story adds a user follow-up question or an assistant end tag; cut it off from there if so
-  let unnecessaryBit = story.indexOf('<');
+  const unnecessaryBit = story.indexOf('<');
   if (unnecessaryBit !== -1) {
     story = story.slice(0, unnecessaryBit).trim();
   }

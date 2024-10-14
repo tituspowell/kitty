@@ -13,7 +13,7 @@ const Hero = () => {
         <h1
           className={`${theme.text.lowContrast} text-6xl text-primary-500 italic`}
         >
-          Kitty's
+          Kitty&apos;s
         </h1>
         <h2
           className={`${theme.text.highContrast} text-3xl md:text-4xl mt-6 text-center`}

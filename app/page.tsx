@@ -50,8 +50,8 @@ export default function Home() {
           <b>Tailwind</b>, with a little help from Kitty.
         </p>{' '}
         <p className='text-lg mt-4'>
-          Each page has a button at the bottom that explains what's happening
-          behind the scenes. The full code is on{' '}
+          Each page has a button at the bottom that explains what&apos;s
+          happening behind the scenes. The full code is on{' '}
           <a href='https://github.com/tituspowell/kitty'>
             <b>
               <u>Github</u>

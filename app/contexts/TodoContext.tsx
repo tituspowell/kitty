@@ -2,13 +2,7 @@
 
 'use client';
 
-import React, {
-  createContext,
-  useCallback,
-  useContext,
-  useMemo,
-  useState,
-} from 'react';
+import React, { createContext, useCallback, useContext, useMemo } from 'react';
 import { useLocalStorage } from '../utils/localStorage';
 import { TodoContextType, Task } from '../todo/types';
 // We use Nanoid to create a unique ID for each task when created
