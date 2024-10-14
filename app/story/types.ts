@@ -1,3 +1,5 @@
+// Types used by the story generator app
+
 export interface StoryRequest {
   object: string;
   setting: string;
