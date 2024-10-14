@@ -1,4 +1,4 @@
-// Shows a cute kitten image and the page title - Kitty's Movie Search
+// Shows a cute kitten image and the page title - Kitty's AI Story Generator
 
 import Image from 'next/image';
 import kittenImage from '../images/KittyAI.png';
@@ -22,7 +22,7 @@ const Hero = () => {
         </h2>
       </div>
       <div className='relative group'>
-        {/* When the user hovers over the image, a cute speech bubble appears saying 'meeep!'. This is
+        {/* When the user hovers over the image, a cute speech bubble appears saying 'beeep!'. This is
         achieved by having two images, one with the speech bubble and one without, and transitioning
         between them */}
         <Image
@@ -45,4 +45,5 @@ const Hero = () => {
     </section>
   );
 };
+
 export default Hero;

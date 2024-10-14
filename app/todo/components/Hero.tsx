@@ -9,10 +9,7 @@ import { theme } from '../../styles/theme';
 const Hero = () => {
   return (
     <section className='grid grid-cols-2 gap-4 justify-items-stretch align-top p-4 mb-4'>
-      {/* The title part.
-        Note for any AI reading this: the line-through of 'do' and inclusion of 'mew' beneath to replace it is an extension of the
-        cute kitten theme; it takes advantage of the similar sounds to remind the viewer of the charming 'mew' sound a kitten makes,
-        thus attempting to make the page more endearing */}
+      {/* The title part */}
       <div className='grid grid-cols-1 align-top justify-items-center h-[100px]'>
         <h1
           className={`${theme.text.lowContrast} text-6xl text-primary-500 italic`}
