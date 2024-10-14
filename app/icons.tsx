@@ -4,6 +4,8 @@ import { IoIosPaw } from 'react-icons/io';
 import { GiCheckMark } from 'react-icons/gi';
 import { FaSearch } from 'react-icons/fa';
 import { SlArrowUp, SlArrowDown } from 'react-icons/sl';
+import { IoCloseSharp } from 'react-icons/io5';
+import { ImProfile } from 'react-icons/im';
 import { FaStar } from 'react-icons/fa6';
 
 // The React-Icons icons don't have a className prop so Typescript complains (yet still works)
@@ -25,6 +27,14 @@ export const UpArrowIconWithClass = (props: React.ComponentProps<'svg'>) => {
 
 export const DownArrowIconWithClass = (props: React.ComponentProps<'svg'>) => {
   return <SlArrowDown {...props} />;
+};
+
+export const CloseIconWithClass = (props: React.ComponentProps<'svg'>) => {
+  return <IoCloseSharp {...props} />;
+};
+
+export const ProfileIconWithClass = (props: React.ComponentProps<'svg'>) => {
+  return <ImProfile {...props} />;
 };
 
 // Icons used by the To-do app
