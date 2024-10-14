@@ -1,4 +1,6 @@
-// Context API for the light/dark mode theme
+// Context API for the light/dark mode theme, wrapping the entire website. It is actually
+// only used in the ThemeSwitch component at the moment, so all this state and functionality
+// could be moved there but having 'isDarkMode' available anywhere feels more future proofed.
 
 'use client';
 
