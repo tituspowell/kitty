@@ -75,6 +75,7 @@ const MoviesContainer = () => {
     );
   }
 
+  // Did we get at least one result?
   const resultsObtained: boolean = movies.length > 0;
 
   // Finished fetching the movie data so we can now display properly

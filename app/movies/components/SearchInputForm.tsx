@@ -6,7 +6,6 @@ import React, { FormEvent, useState } from 'react';
 import { SearchIconWithClass } from '../../icons';
 import { theme } from '@/app/styles/theme';
 import { SearchComponentProps } from '../types';
-import { section } from 'framer-motion/client';
 
 const SearchInputForm = ({ defaultInput, setQuery }: SearchComponentProps) => {
   const [input, setInput] = useState(defaultInput);
