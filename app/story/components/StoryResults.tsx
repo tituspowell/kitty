@@ -1,3 +1,5 @@
+// Display the story we got from the LLM hosted by HuggingFace.
+
 import { theme } from '@/app/styles/theme';
 
 const StoryResults = ({ story }: { story: string }) => {

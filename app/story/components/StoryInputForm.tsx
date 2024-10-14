@@ -1,4 +1,5 @@
-// The story generator input elements plus submit button
+// The story generator input elements plus submit button. The inputs are an object, a preposition
+// and a setting, in the form "Generate a story about a kitten and a [horse] [on a] [pirate ship]".
 
 'use client';
 
@@ -12,7 +13,8 @@ const StoryInputForm = ({ generateStory }: StoryInputProps) => {
   const [setting, setSetting] = useState<string>('');
   const [preposition, setPreposition] = useState<string>('');
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  // The user has submitted parameters so generate a story
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     generateStory({
       object: object,
@@ -20,15 +22,18 @@ const StoryInputForm = ({ generateStory }: StoryInputProps) => {
       preposition: preposition,
     });
 
-    // Reset the input fields
+    // Reset the input fields ready for another one
     setObject('');
     setSetting('');
   };
 
+  // We're using a custom dropdown input component, and it needs to be able
+  // to trigger an update to the controlled input
   const prepositionChanged = (prepositionSelected: string) => {
     setPreposition(prepositionSelected);
   };
 
+  // Note whether they've filled in the parameters allowing us to generate a story yet
   const canGenerate: boolean = object !== '' && setting !== '';
 
   // Responsive layout differences kick in at medium ('md') screen size and above. Smaller than that,
@@ -68,9 +73,9 @@ const StoryInputForm = ({ generateStory }: StoryInputProps) => {
             className={`px-4 pt-1 pb-2 w-full rounded border ${theme.border} text-primary-950 text-xl bg-primary-50 focus:outline-none focus:ring-0`}
           />
         </div>
-        {/* Generate Story button, only shown if we have valid inputs */}
+        {/* Generate Story button, only enabled if we have valid inputs */}
         <button
-          onClick={handleClick}
+          onClick={handleSubmit}
           className={`rounded mx-auto w-40 mt-2 md:mt-0 px-4 py-3 md:py-2 text-lg leading-tight mb-4 md:ml-4 ${
             canGenerate ? theme.button.active : theme.button.disabled
           }`}

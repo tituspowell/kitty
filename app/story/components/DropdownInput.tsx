@@ -1,3 +1,11 @@
+// Custom dropdown input component, separated out to reduce clutter even though
+// it won't be used anywhere other than the story input form. As part of the
+// story parameters we let the user pick a preposition, as in, "Generate a story
+// about a kitten and a [pig] [in a] [toy factory]". If the preposition was fixed
+// as 'in' then it would restrict the settings that would make sense and could
+// frustrate the user. By having a few preposition options, the user gets to enter
+// things like 'on a train', 'with a huge hat', etc.
+
 'use client';
 
 import { DownArrowIconWithClass } from '@/app/icons';
@@ -10,6 +18,7 @@ const DropdownInput: React.FC<DropdownInputProps> = ({
 }) => {
   const [selectedOption, setSelectedOption] = useState<string>('in a');
 
+  // The hard-coded options
   const options = [
     { value: 'in a', label: 'in a' },
     { value: 'on a', label: 'on a' },
@@ -17,6 +26,7 @@ const DropdownInput: React.FC<DropdownInputProps> = ({
     { value: 'and a', label: 'and a' },
   ];
 
+  // Control the input
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const newValue = event.target.value;
     setSelectedOption(newValue);
