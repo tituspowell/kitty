@@ -28,7 +28,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
       >
         {children}
         <button
-          className='absolute top-2 right-2 text-xl text-gray-500 hover:text-gray-300'
+          className={`absolute top-2 right-2 text-4xl ${theme.text.lowContrast}`}
           onClick={onClose}
         >
           ×
