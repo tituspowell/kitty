@@ -68,26 +68,26 @@ const SingleTask = ({ task }: { task: Task }) => {
       animate={{ opacity: 1, y: 0 }} // Ending state (fully visible and at normal position)
       exit={{ opacity: 0, y: -10 }} // Exiting state (fades out and moves up)
     >
-      <article className={`${theme.task}`}>
+      <article className={`${theme.task} md:min-w-[600px]`}>
         {/* Conditional rendering: normally we show the task plus a Delete and an Edit button. Once they
           click Edit, we show an input field and an Update and a Cancel button instead. */}
         {!isEditing ? (
-          <div className='flex my-0.5 h-[36px]'>
+          <div className='flex my-0.5 items-center'>
             {/* Normal version, showing the task plus a Delete and an Edit button.
               The task itself is a button because clicking on it toggles its 'completed' status. */}
             <button
               onClick={() => toggleCompleted(task.id)}
-              className={`flex-1 text-nowrap overflow-hidden justify-start grid grid-flow-col place-items-center`}
+              className={`flex-1 text-nowrap overflow-hidden justify-start grid grid-flow-col `}
             >
-              {/* Show a tick icon if the task is completed, or a paw icon if not */}
+              {/* Show a tick icon if the task is completed, or a paw icon if not. Hide on small screens to make space */}
               {task.completed ? (
-                <TickIconWithClass className='text-xl my-auto mx-2' />
+                <TickIconWithClass className='text-xl my-auto mx-2 hidden md:block' />
               ) : (
-                <PawIconWithClass className='text-xl my-auto mx-2' />
+                <PawIconWithClass className='text-xl my-auto mx-2 hidden md:block' />
               )}
               {/* Display the task description and put a line through it if completed */}
               <h4
-                className={`text-lg pl-2 text-nowrap overflow-hidden ${
+                className={`md:text-lg pl-2 whitespace-normal overflow-hidden text-left ${
                   task.completed && 'line-through'
                 }`}
               >
@@ -96,19 +96,19 @@ const SingleTask = ({ task }: { task: Task }) => {
             </button>
             {/* Delete button */}
             <button
-              className={`${theme.button.active} mx-0 w-16`}
+              className={`${theme.button.active} mx-0 w-16 p-1 pb-1.5 self-start`}
               onClick={() => deleteTask(id)}
             >
               Delete
             </button>
             {/* Edit button */}
             <button
-              className={`${theme.button.active} mx-0 w-16 ml-0.5`}
+              className={`${theme.button.active} mx-0 w-16 p-1 pb-1.5 self-start ml-0.5`}
               onClick={handleEdit}
             >
               Edit
             </button>
-            <div className={`grid px-0.5 ${theme.bg.arrow} w-5`}>
+            <div className={`grid px-0.5 ${theme.bg.arrow} w-5 self-start`}>
               {/* Up arrow button to move the task up in the task list, unless already at the top */}
               <button
                 disabled={first}
@@ -132,10 +132,10 @@ const SingleTask = ({ task }: { task: Task }) => {
             </div>
           </div>
         ) : (
-          <div className='flex my-0.5 h-[36px]'>
+          <div className='flex my-0.5'>
             {/* 'isEditing' version, showing the task as an input plus an Update and a Cancel button */}
             <input
-              className={`w-full flex-1 min-w-0 text-nowrap overflow-hidden justify-start text-primary-950 bg-primary-50 text-lg rounded-l pl-2 focus:outline-none focus:ring-0 focus:border ${theme.border}`}
+              className={`w-full flex-1 min-w-0 whitespace-normal overflow-hidden text-left text-primary-950 bg-primary-50 md:text-lg rounded-l pl-2 focus:outline-none focus:ring-0 focus:border ${theme.border}`}
               value={input}
               onKeyDown={handleKeyDown}
               onChange={(e) => {
@@ -144,14 +144,14 @@ const SingleTask = ({ task }: { task: Task }) => {
             />
             {/* Update button */}
             <button
-              className={`${theme.button.active} mx-0 w-16`}
+              className={`${theme.button.active} mx-0 w-16 p-1 pb-1.5 self-start`}
               onClick={handleUpdate}
             >
               Update
             </button>
             {/* Cancel button */}
             <button
-              className={`${theme.button.active} mx-0 w-16 ml-0.5`}
+              className={`${theme.button.active} mx-0 w-16 p-1 pb-1.5 self-start ml-0.5`}
               onClick={() => setIsEditing(false)}
             >
               Cancel
