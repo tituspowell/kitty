@@ -2,6 +2,6 @@
 
 ## Welcome!
 
-This is an unapologetically kitten-themed suite of three web apps created by Titus Powell for his web development portfolio. They are created using **React**, **Next.js**, **Typescript** and **Tailwind**.
+This is an unapologetically kitten-themed suite of three web apps I created for my web development portfolio. They are created using **React**, **Next.js**, **Typescript** and **Tailwind**.
 
 You can play with the live version **[here](https://titus-powell-kitty.netlify.app/).**
