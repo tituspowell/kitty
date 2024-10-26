@@ -16,7 +16,7 @@ export const moviesAppExplanation: string[] = [
 ];
 
 export const storyAppExplanation: string[] = [
-  `This Story Generator React app uses Huggingface's API to interact with a pre-trained AI model, in this case 'Mistral-7B-Instruct-v0.1'.`,
-  `The code does some simple prompt engineering incorporating user-supplied inputs to generate a prompt requesting a story which it then submits to Huggingface. The response it gets back (the story) is then checked and displayed to the user.`,
-  `Huggingface requires an API access token, and in a purely front-end web app, it would be difficult to guarantee that this stays private. But because Next.js has server components, the API can be accessed from the local environment on the server and is never sent to the client.`,
+  `This Story Generator React app uses Google's API to interact with a pre-trained AI model. Previously I used Huggingface but their free service was inconsistent and sometimes failed.`,
+  `The code does some simple prompt engineering incorporating user-supplied inputs to generate a prompt requesting a story which it then submits to Google. The response it gets back (the story) is then checked and displayed to the user.`,
+  `Google requires an API access token, and in a purely front-end web app, it would be difficult to guarantee that this stays private. But because Next.js has server components, the API can be accessed from the local environment on the server and is never sent to the client.`,
 ];
