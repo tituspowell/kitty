@@ -34,7 +34,7 @@ export async function POST(request: Request) {
 
     // Initialize the Google AI model
     const genAI = new GoogleGenerativeAI(GOOGLE_API_KEY);
-    const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-pro' });
 
     // Create the prompt
     const prompt = `Write a sweet, child-friendly story (about 100 words) about a kitten named Kitty and a ${object} ${preposition} ${setting}. Make it fun and engaging, suitable for young children. The story should have a clear beginning, middle, and end.`;
